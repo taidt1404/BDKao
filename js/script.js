@@ -33,6 +33,10 @@ function showScreen(id) {
   const target = document.getElementById(id);
   target.classList.add('active');
   window.scrollTo(0, 0);
+
+  if (id === 'screen-letter' && letterTypewriter) {
+    letterTypewriter.startTyping();
+  }
 }
 
 document.querySelectorAll('[data-next]').forEach(btn => {
@@ -252,6 +256,9 @@ document.getElementById('replay-btn').addEventListener('click', () => {
   const hubBtn = document.getElementById('gift-hub-continue-btn');
   if (hubBtn) hubBtn.classList.remove('unlocked');
   resetGiftGame();
+  if (letterTypewriter) {
+    letterTypewriter.finishTypewriter();
+  }
 
   pauseTrack();
   if (bgMusic) bgMusic.currentTime = 0;
@@ -628,3 +635,131 @@ if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
+
+/* ============ TYPEWRITER EFFECT FOR LOVE LETTER (BỨC THƯ TAY) ============ */
+let letterTypewriter = null;
+
+function setupLoveLetterTypewriter() {
+  const letterBody = document.getElementById('letter-body-text');
+  const letterSign = document.getElementById('letter-sign');
+  const skipBtn = document.getElementById('skip-typewriter-btn');
+  const cursor = document.getElementById('letter-cursor');
+  const letterCard = document.getElementById('stationery-letter-card');
+
+  if (!letterBody) return null;
+
+  let originalLetterContent = letterBody.innerHTML.trim();
+  let typewriterRunning = false;
+  let typewriterTimeout = null;
+
+  // Tách nội dung thành các token: ký tự, emoji, và thẻ HTML (<br>, <span>...)
+  function parseTokens(str) {
+    const tokens = [];
+    let i = 0;
+    while (i < str.length) {
+      if (str[i] === '<') {
+        const closeIdx = str.indexOf('>', i);
+        if (closeIdx !== -1) {
+          tokens.push(str.substring(i, closeIdx + 1));
+          i = closeIdx + 1;
+          continue;
+        }
+      }
+      if (str[i] === '&') {
+        const semiIdx = str.indexOf(';', i);
+        if (semiIdx !== -1 && semiIdx - i < 8) {
+          tokens.push(str.substring(i, semiIdx + 1));
+          i = semiIdx + 1;
+          continue;
+        }
+      }
+      const codePoint = str.codePointAt(i);
+      const char = String.fromCodePoint(codePoint);
+      tokens.push(char);
+      i += char.length;
+    }
+    return tokens;
+  }
+
+  const tokens = parseTokens(originalLetterContent);
+
+  function finishTypewriter() {
+    if (typewriterTimeout) {
+      clearTimeout(typewriterTimeout);
+      typewriterTimeout = null;
+    }
+    typewriterRunning = false;
+    letterBody.innerHTML = originalLetterContent;
+    if (cursor) cursor.style.display = 'none';
+    if (skipBtn) skipBtn.style.display = 'none';
+    if (letterSign) letterSign.classList.remove('hidden-sign');
+  }
+
+  function startTyping() {
+    if (typewriterTimeout) {
+      clearTimeout(typewriterTimeout);
+      typewriterTimeout = null;
+    }
+    typewriterRunning = true;
+    letterBody.innerHTML = "";
+    if (cursor) cursor.style.display = 'inline-block';
+    if (skipBtn) skipBtn.style.display = 'inline-block';
+    if (letterSign) letterSign.classList.add('hidden-sign');
+
+    let idx = 0;
+
+    function step() {
+      if (!typewriterRunning) return;
+      if (idx >= tokens.length) {
+        finishTypewriter();
+        return;
+      }
+
+      const tok = tokens[idx];
+      letterBody.innerHTML += tok;
+      idx++;
+
+      // Tốc độ gõ tự nhiên, có nhịp thở cảm xúc
+      let delay = 22; // ms mặc định mỗi ký tự
+      if (tok === '.' || tok === '!' || tok === '?') {
+        delay = 320; // Dừng lại sau dấu chấm / dấu cảm
+      } else if (tok === ',' || tok === ';') {
+        delay = 170; // Dừng ngắn sau dấu phẩy
+      } else if (tok.toLowerCase().startsWith('<br')) {
+        delay = 200; // Dừng khi xuống đoạn mới
+      } else if (tok === ' ') {
+        delay = 14;
+      }
+
+      typewriterTimeout = setTimeout(step, delay);
+    }
+
+    step();
+  }
+
+  if (skipBtn) {
+    skipBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      finishTypewriter();
+    });
+  }
+
+  if (letterCard) {
+    letterCard.addEventListener('click', (e) => {
+      if (e.target.closest('#skip-typewriter-btn') || e.target.closest('.back-to-gifts-btn')) return;
+      if (typewriterRunning) {
+        finishTypewriter();
+      }
+    });
+  }
+
+  return { startTyping, finishTypewriter };
+}
+
+// Khởi tạo Typewriter sau khi DOM sẵn sàng
+document.addEventListener('DOMContentLoaded', () => {
+  letterTypewriter = setupLoveLetterTypewriter();
+});
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  letterTypewriter = setupLoveLetterTypewriter();
+}
