@@ -7,8 +7,14 @@
 assets/photos/*
 !assets/photos/rose*
 !assets/photos/lily*
+!assets/photos/t1.jpg
+!assets/photos/t2.jpg
+!assets/photos/t3.jpg
 *.jpeg
 *.jpg
+!assets/photos/t1.jpg
+!assets/photos/t2.jpg
+!assets/photos/t3.jpg
 
 # Dependencies & Package Managers
 node_modules/

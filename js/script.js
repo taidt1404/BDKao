@@ -1,9 +1,10 @@
-/* ============ CONFIG — customize this per person ============ */
+/* ============ CẤU HÌNH THÔNG TIN (Thay đổi theo ý bạn tại đây) ============ */
 const CONFIG = {
-  correctPin: "1107",     // the 4-digit PIN e.g. DDMM (11th July)
-  recipientName: "Fahimm",
-  senderName: "Raazik",
-  autoplayMusic: true
+  correctPin: "1710",        // Mã PIN 4 số (Ngày sinh hoặc ngày kỷ niệm DDMM, ví dụ: 2010 là ngày 20/10)
+  recipientName: "Kào",   // Tên hoặc biệt danh của bạn gái
+  senderName: "MinXu",      // Tên hoặc biệt danh của bạn
+  age: 20,                   // Tuổi mới của bạn gái
+  autoplayMusic: true        // Tự động bật nhạc khi bắt đầu nhập mã
 };
 
 function applyDynamicNames() {
@@ -16,21 +17,26 @@ function applyDynamicNames() {
   document.querySelectorAll('.sender-name-fill').forEach(el => {
     el.textContent = CONFIG.senderName;
   });
+
+  const ageFill = document.getElementById('age-fill');
+  if (ageFill && CONFIG.age) {
+    ageFill.textContent = CONFIG.age;
+  }
 }
 
 document.addEventListener('DOMContentLoaded', applyDynamicNames);
 applyDynamicNames();
 
 /* ============ SCREEN NAVIGATION ============ */
-function showScreen(id){
+function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   const target = document.getElementById(id);
   target.classList.add('active');
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
-document.querySelectorAll('[data-next]').forEach(btn=>{
-  btn.addEventListener('click', ()=> showScreen(btn.dataset.next));
+document.querySelectorAll('[data-next]').forEach(btn => {
+  btn.addEventListener('click', () => showScreen(btn.dataset.next));
 });
 
 /* ============ SCREEN 1: PIN LOCK ============ */
@@ -38,41 +44,41 @@ let enteredPin = "";
 const dots = document.querySelectorAll('.dot');
 const errorMsg = document.getElementById('error-msg');
 
-function updateDots(){
-  dots.forEach((d,i)=>{
+function updateDots() {
+  dots.forEach((d, i) => {
     d.classList.toggle('filled', i < enteredPin.length);
   });
 }
 
-function checkPin(){
-  if(enteredPin === CONFIG.correctPin){
+function checkPin() {
+  if (enteredPin === CONFIG.correctPin) {
     fireConfetti();
-    setTimeout(()=> showScreen('screen-reveal'), 600);
+    setTimeout(() => showScreen('screen-reveal'), 600);
   } else {
     errorMsg.classList.add('show');
-    dots.forEach(d=> d.classList.add('shake'));
-    setTimeout(()=>{
-      dots.forEach(d=> d.classList.remove('shake'));
+    dots.forEach(d => d.classList.add('shake'));
+    setTimeout(() => {
+      dots.forEach(d => d.classList.remove('shake'));
       enteredPin = "";
       updateDots();
     }, 450);
   }
 }
 
-document.querySelectorAll('#numpad button[data-num]').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    if(enteredPin.length >= 4) return;
+document.querySelectorAll('#numpad button[data-num]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (enteredPin.length >= 4) return;
     errorMsg.classList.remove('show');
     enteredPin += btn.dataset.num;
     updateDots();
-    if(enteredPin.length === 4){
+    if (enteredPin.length === 4) {
       setTimeout(checkPin, 200);
     }
   });
 });
 
-document.getElementById('backspace').addEventListener('click', ()=>{
-  enteredPin = enteredPin.slice(0,-1);
+document.getElementById('backspace').addEventListener('click', () => {
+  enteredPin = enteredPin.slice(0, -1);
   updateDots();
 });
 
@@ -86,15 +92,15 @@ const photoCounter = document.getElementById('photo-counter');
 const photosContinue = document.getElementById('photos-continue');
 let revealedCount = 0;
 
-cameraBtn.addEventListener('click', ()=>{
-  if(revealedCount >= polaroids.length) return;
+cameraBtn.addEventListener('click', () => {
+  if (revealedCount >= polaroids.length) return;
   polaroids[revealedCount].classList.remove('hidden');
   revealedCount++;
-  photoCounter.textContent = `${revealedCount} / ${polaroids.length} snapshots`;
+  photoCounter.textContent = `${revealedCount} / ${polaroids.length} ảnh kỷ niệm`;
   cameraBtn.style.transform = "scale(0.8) rotate(-8deg)";
-  setTimeout(()=> cameraBtn.style.transform = "", 200);
-  if(revealedCount === polaroids.length){
-    photoCounter.textContent = `✨ All snapshots revealed! ${revealedCount}/${polaroids.length}`;
+  setTimeout(() => cameraBtn.style.transform = "", 200);
+  if (revealedCount === polaroids.length) {
+    photoCounter.textContent = `✨ Đã mở toàn bộ ${revealedCount}/${polaroids.length} bức ảnh rồi nè!`;
     photosContinue.classList.remove('hidden');
     const hint = document.getElementById('camera-hint');
     if (hint) hint.classList.add('hidden');
@@ -109,21 +115,21 @@ const cakeHint = document.getElementById('cake-hint');
 let dragStartX = null;
 let cakeCut = false;
 
-function handleDragStart(x){
-  if(cakeCut) return;
+function handleDragStart(x) {
+  if (cakeCut) return;
   dragStartX = x;
 }
-function handleDragMove(x){
-  if(cakeCut || dragStartX === null) return;
+function handleDragMove(x) {
+  if (cakeCut || dragStartX === null) return;
   const dist = Math.abs(x - dragStartX);
-  if(dist > 60){
+  if (dist > 60) {
     triggerCut();
   }
 }
-function handleDragEnd(){
+function handleDragEnd() {
   dragStartX = null;
 }
-function triggerCut(){
+function triggerCut() {
   cakeCut = true;
   if (cake) cake.classList.add('cut');
   if (cakeHint) cakeHint.classList.add('hidden');
@@ -133,42 +139,42 @@ function triggerCut(){
 }
 
 if (cake) {
-  cake.addEventListener('mousedown', e=> handleDragStart(e.clientX));
-  window.addEventListener('mousemove', e=> handleDragMove(e.clientX));
+  cake.addEventListener('mousedown', e => handleDragStart(e.clientX));
+  window.addEventListener('mousemove', e => handleDragMove(e.clientX));
   window.addEventListener('mouseup', handleDragEnd);
 
-  cake.addEventListener('touchstart', e=> handleDragStart(e.touches[0].clientX));
-  cake.addEventListener('touchmove', e=> handleDragMove(e.touches[0].clientX));
+  cake.addEventListener('touchstart', e => handleDragStart(e.touches[0].clientX));
+  cake.addEventListener('touchmove', e => handleDragMove(e.touches[0].clientX));
   cake.addEventListener('touchend', handleDragEnd);
 }
 
 /* ============ CONFETTI ============ */
-function fireConfetti(){
-  if(typeof confetti !== 'function') return;
+function fireConfetti() {
+  if (typeof confetti !== 'function') return;
   confetti({
     particleCount: 120,
     spread: 90,
     origin: { y: 0.5 },
-    colors: ['#a3001e','#ffccd5','#ffd3db']
+    colors: ['#a3001e', '#ffccd5', '#ffd3db']
   });
 }
-function smallConfettiBurst(){
-  if(typeof confetti !== 'function') return;
+function smallConfettiBurst() {
+  if (typeof confetti !== 'function') return;
   confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 } });
 }
 
 /* ============ FINALE screen extra confetti + replay ============ */
 const finaleScreen = document.getElementById('screen-finale');
-document.querySelector('[data-next="screen-finale"]').addEventListener('click', ()=>{
+document.querySelector('[data-next="screen-finale"]').addEventListener('click', () => {
   setTimeout(fireConfetti, 400);
 });
 
-document.getElementById('replay-btn').addEventListener('click', ()=>{
+document.getElementById('replay-btn').addEventListener('click', () => {
   enteredPin = "";
   updateDots();
   revealedCount = 0;
-  polaroids.forEach(p=> p.classList.add('hidden'));
-  photoCounter.textContent = `0 / ${polaroids.length} photos`;
+  polaroids.forEach(p => p.classList.add('hidden'));
+  photoCounter.textContent = `0 / ${polaroids.length} bức ảnh`;
   const hint = document.getElementById('camera-hint');
   if (hint) hint.classList.remove('hidden');
   photosContinue.classList.add('hidden');
@@ -177,31 +183,67 @@ document.getElementById('replay-btn').addEventListener('click', ()=>{
   if (cakeHint) cakeHint.classList.remove('hidden');
   if (cakeResult) cakeResult.classList.add('hidden');
   if (cakeContinue) cakeContinue.classList.add('hidden');
-  
+
   // Reset interactive gifts
   visitedGifts.clear();
   document.querySelectorAll('.gift-option-box').forEach(box => box.classList.remove('unpacked'));
   const hubBtn = document.getElementById('gift-hub-continue-btn');
   if (hubBtn) hubBtn.classList.remove('unlocked');
   resetGiftGame();
-  
-  if (bgMusic) {
-    bgMusic.pause();
-    bgMusic.currentTime = 0;
-  }
-  musicPlaying = false;
-  updateMusicUI();
-  
+
+  pauseTrack();
+  if (bgMusic) bgMusic.currentTime = 0;
+
   showScreen('screen-lock');
 });
 
-/* ============ MUSIC & VINYL SYNCHRONIZATION ============ */
+/* ============ MUSIC & YOUTUBE / LOCAL AUDIO SYNCHRONIZATION ============ */
 const musicBtn = document.getElementById('music-toggle');
 const bgMusic = document.getElementById('bg-music');
 const spotifyPlayBtn = document.getElementById('spotify-play-btn');
 const vinylRecord = document.getElementById('vinyl-record');
 const tonearm = document.getElementById('tonearm');
 let musicPlaying = false;
+let ytPlayer = null;
+let ytReady = false;
+
+// YouTube IFrame API Callback - bài hát: CONGB - chờ chút... (GczyPW3vbrc)
+window.onYouTubeIframeAPIReady = function () {
+  try {
+    ytPlayer = new YT.Player('yt-player', {
+      height: '1',
+      width: '1',
+      videoId: 'GczyPW3vbrc',
+      playerVars: {
+        'autoplay': 0,
+        'controls': 0,
+        'loop': 1,
+        'playlist': 'GczyPW3vbrc',
+        'playsinline': 1
+      },
+      events: {
+        'onReady': () => {
+          ytReady = true;
+          // Set standard volume
+          if (ytPlayer && ytPlayer.setVolume) ytPlayer.setVolume(70);
+        },
+        'onStateChange': (e) => {
+          if (e.data === YT.PlayerState.PLAYING) {
+            musicPlaying = true;
+            updateMusicUI();
+          } else if (e.data === YT.PlayerState.PAUSED) {
+            musicPlaying = false;
+            updateMusicUI();
+          } else if (e.data === YT.PlayerState.ENDED) {
+            if (ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
+          }
+        }
+      }
+    });
+  } catch (err) {
+    console.log("YouTube API init error:", err);
+  }
+};
 
 function updateMusicUI() {
   if (musicPlaying) {
@@ -220,45 +262,65 @@ function updateMusicUI() {
   }
 }
 
-function tryAutoplay(){
-  bgMusic.volume = 0.5;
-  bgMusic.play().then(()=>{
-    musicPlaying = true;
-    updateMusicUI();
-  }).catch(()=>{
-    if (musicBtn) musicBtn.classList.remove('hidden');
-    updateMusicUI();
-  });
+function playTrack() {
+  let started = false;
+  // Ưu tiên phát qua YouTube video GczyPW3vbrc
+  if (ytReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+    try {
+      ytPlayer.playVideo();
+      started = true;
+      musicPlaying = true;
+      updateMusicUI();
+    } catch (e) {
+      console.log("YT play failed, fallback to local:", e);
+    }
+  }
+
+  // Nếu YouTube chưa sẵn sàng hoặc lỗi, fallback sang file nhạc local
+  if (!started && bgMusic) {
+    bgMusic.volume = 0.5;
+    bgMusic.play().then(() => {
+      musicPlaying = true;
+      updateMusicUI();
+    }).catch(e => {
+      console.log("Audio play prevented:", e);
+      if (musicBtn) musicBtn.classList.remove('hidden');
+      updateMusicUI();
+    });
+  }
 }
 
-document.getElementById('numpad').addEventListener('click', ()=>{
-  if(!musicPlaying && CONFIG.autoplayMusic){
-    tryAutoplay();
+function pauseTrack() {
+  if (ytReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+    try { ytPlayer.pauseVideo(); } catch (e) { }
   }
-}, { once:true });
+  if (bgMusic) {
+    try { bgMusic.pause(); } catch (e) { }
+  }
+  musicPlaying = false;
+  updateMusicUI();
+}
+
+function toggleTrack() {
+  if (musicPlaying) {
+    pauseTrack();
+  } else {
+    playTrack();
+  }
+}
+
+document.getElementById('numpad').addEventListener('click', () => {
+  if (!musicPlaying && CONFIG.autoplayMusic) {
+    playTrack();
+  }
+}, { once: true });
 
 if (musicBtn) {
-  musicBtn.addEventListener('click', ()=>{
-    if(musicPlaying){
-      bgMusic.pause();
-    } else {
-      bgMusic.play().catch(e => console.log("Music play blocked", e));
-    }
-    musicPlaying = !musicPlaying;
-    updateMusicUI();
-  });
+  musicBtn.addEventListener('click', toggleTrack);
 }
 
 if (spotifyPlayBtn) {
-  spotifyPlayBtn.addEventListener('click', ()=>{
-    if(musicPlaying){
-      bgMusic.pause();
-    } else {
-      bgMusic.play().catch(e => console.log("Music play blocked", e));
-    }
-    musicPlaying = !musicPlaying;
-    updateMusicUI();
-  });
+  spotifyPlayBtn.addEventListener('click', toggleTrack);
 }
 
 /* ============ DYNAMIC SCRAPBOOK FLOATING STICKERS SYSTEM ============ */
@@ -309,13 +371,13 @@ let visitedGifts = new Set();
 
 function registerVisitedGift(giftId) {
   visitedGifts.add(giftId);
-  
+
   // Mark item option box as visual unpacked
   const boxOption = document.getElementById(`gift-${giftId}-box`);
   if (boxOption) {
     boxOption.classList.add('unpacked');
   }
-  
+
   // If explored all 3, unlock done continue button
   if (visitedGifts.size === 3) {
     const continueBtn = document.getElementById('gift-hub-continue-btn');
@@ -367,17 +429,17 @@ function moveNoButton() {
   if (!noBtn) return;
   const card = noBtn.closest('.scrapbook-page');
   if (!card) return;
-  
+
   const cardRect = card.getBoundingClientRect();
   const btnRect = noBtn.getBoundingClientRect();
-  
+
   // Calculate relative bounds inside the card
   const maxX = cardRect.width - btnRect.width - 30;
   const maxY = cardRect.height - btnRect.height - 80;
-  
+
   const randomX = Math.max(15, Math.floor(Math.random() * maxX));
   const randomY = Math.max(15, Math.floor(Math.random() * maxY));
-  
+
   noBtn.style.position = 'absolute';
   noBtn.style.left = `${randomX}px`;
   noBtn.style.top = `${randomY}px`;
@@ -394,14 +456,14 @@ if (noBtn) {
 if (yesBtn) {
   yesBtn.addEventListener('click', () => {
     fireConfetti();
-    if (acceptTitleText) acceptTitleText.textContent = "GIFT ACCEPTED! 🎉";
-    
+    if (acceptTitleText) acceptTitleText.textContent = "EM ĐỒNG Ý RỒI NHA! 🎉";
+
     // Hide creature, show polaroid
     const creature = document.getElementById('accept-game-creature');
     const polaroid = document.getElementById('accept-reveal-polaroid');
     if (creature) creature.classList.add('hidden');
     if (polaroid) polaroid.classList.remove('hidden');
-    
+
     // Hide buttons, show Back to Gifts continue trigger
     if (yesBtn) yesBtn.classList.add('hidden');
     if (noBtn) noBtn.classList.add('hidden');
@@ -410,13 +472,13 @@ if (yesBtn) {
 }
 
 function resetGiftGame() {
-  if (acceptTitleText) acceptTitleText.textContent = "PLEASE ACCEPT THE GIFT";
-  
+  if (acceptTitleText) acceptTitleText.textContent = "EM CÓ ĐỒNG Ý NHẬN QUÀ CỦA ANH HÔNG? 🥺";
+
   const creature = document.getElementById('accept-game-creature');
   const polaroid = document.getElementById('accept-reveal-polaroid');
   if (creature) creature.classList.remove('hidden');
   if (polaroid) polaroid.classList.add('hidden');
-  
+
   if (yesBtn) yesBtn.classList.remove('hidden');
   if (noBtn) {
     noBtn.classList.remove('hidden');
@@ -452,3 +514,55 @@ document.addEventListener('DOMContentLoaded', createPetals);
 if (document.readyState === 'interactive' || document.readyState === 'complete') {
   createPetals();
 }
+
+/* ============ PHOTO LIGHTBOX ZOOM SYSTEM ============ */
+const lightbox = document.getElementById('photo-lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxBackdrop = document.querySelector('.lightbox-backdrop');
+
+function openLightbox(imgSrc, captionText) {
+  if (!lightbox || !lightboxImg) return;
+  lightboxImg.src = imgSrc;
+  if (lightboxCaption) lightboxCaption.textContent = captionText || "";
+  lightbox.classList.remove('hidden');
+  smallConfettiBurst();
+}
+
+function closeLightbox() {
+  if (lightbox) {
+    lightbox.classList.add('hidden');
+  }
+}
+
+// Bắt sự kiện click vào các thẻ ảnh polaroid để phóng to
+document.querySelectorAll('.polaroid').forEach(card => {
+  card.addEventListener('click', () => {
+    // Không mở khi thẻ đang bị ẩn chưa được chụp
+    if (card.classList.contains('hidden')) return;
+
+    // Lấy link ảnh từ data-img hoặc CSS background
+    let imgSrc = card.dataset.img;
+    if (!imgSrc) {
+      const imgDiv = card.querySelector('.polaroid-img');
+      if (imgDiv) {
+        const bg = window.getComputedStyle(imgDiv).backgroundImage;
+        const match = bg.match(/url\(["']?([^"']+)["']?\)/);
+        if (match) imgSrc = match[1];
+      }
+    }
+
+    const captionEl = card.querySelector('p');
+    const caption = card.dataset.caption || (captionEl ? captionEl.textContent : "");
+    if (imgSrc) {
+      openLightbox(imgSrc, caption);
+    }
+  });
+});
+
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});

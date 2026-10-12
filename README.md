@@ -1,6 +1,6 @@
-# 🎂 Birthday Surprise Website
+# BDKao 🎂
 
-A modern, interactive, single-page birthday surprise experience crafted with HTML5, CSS3, and JavaScript. 
+Birthday surprise website crafted with love for Kào 🌸.
 
 Includes interactive screens, PIN lock verification, vinyl music player, scrapbook photo gallery, interactive mini-games, customizable letter, and confetti fireworks finale!
 
