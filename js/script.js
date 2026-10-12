@@ -107,13 +107,58 @@ cameraBtn.addEventListener('click', () => {
   }
 });
 
-/* ============ SCREEN 6: CAKE CUTTING (drag) ============ */
+/* ============ SCREEN 6: VIP PRO CAKE (BLOW CANDLES & CUT) ============ */
 const cake = document.getElementById('cake');
 const cakeResult = document.getElementById('cake-result');
 const cakeContinue = document.getElementById('cake-continue');
 const cakeHint = document.getElementById('cake-hint');
+const cakeEyebrow = document.getElementById('cake-eyebrow');
+const cakeTitle = document.getElementById('cake-title');
+const blowBtn = document.getElementById('blow-candle-btn');
+const cutBtn = document.getElementById('cut-cake-btn');
+const knifeGuide = document.getElementById('knife-guide');
+const candlesContainer = document.getElementById('candles-container');
+
 let dragStartX = null;
 let cakeCut = false;
+let candlesBlown = false;
+
+function blowOutCandles() {
+  if (candlesBlown) return;
+  candlesBlown = true;
+
+  // Extinguish flames with puff animation
+  document.querySelectorAll('.flame').forEach(f => f.classList.add('blown-out'));
+  document.querySelectorAll('.smoke').forEach(s => s.classList.add('rising'));
+
+  smallConfettiBurst();
+
+  if (cakeEyebrow) cakeEyebrow.textContent = "✦ bước 2: cắt bánh sinh nhật ✦";
+  if (cakeTitle) cakeTitle.textContent = "Nến đã tắt, cùng cắt bánh nào! 🎂";
+  if (cakeHint) cakeHint.textContent = "Kéo ngang chiếc bánh hoặc bấm nút Cắt Bánh bên dưới nhé 🍰";
+
+  if (blowBtn) blowBtn.classList.add('hidden');
+  if (cutBtn) cutBtn.classList.remove('hidden');
+  if (knifeGuide) knifeGuide.classList.remove('hidden');
+}
+
+function triggerCut() {
+  if (cakeCut) return;
+  if (!candlesBlown) {
+    blowOutCandles();
+  }
+  cakeCut = true;
+
+  if (cake) cake.classList.add('cut');
+  if (knifeGuide) knifeGuide.classList.add('hidden');
+  if (cakeHint) cakeHint.classList.add('hidden');
+  if (cutBtn) cutBtn.classList.add('hidden');
+  if (blowBtn) blowBtn.classList.add('hidden');
+  if (cakeResult) cakeResult.classList.remove('hidden');
+  if (cakeContinue) cakeContinue.classList.remove('hidden');
+
+  fireConfetti();
+}
 
 function handleDragStart(x) {
   if (cakeCut) return;
@@ -122,20 +167,22 @@ function handleDragStart(x) {
 function handleDragMove(x) {
   if (cakeCut || dragStartX === null) return;
   const dist = Math.abs(x - dragStartX);
-  if (dist > 60) {
+  if (dist > 45) {
     triggerCut();
   }
 }
 function handleDragEnd() {
   dragStartX = null;
 }
-function triggerCut() {
-  cakeCut = true;
-  if (cake) cake.classList.add('cut');
-  if (cakeHint) cakeHint.classList.add('hidden');
-  if (cakeResult) cakeResult.classList.remove('hidden');
-  if (cakeContinue) cakeContinue.classList.remove('hidden');
-  smallConfettiBurst();
+
+if (candlesContainer) {
+  candlesContainer.addEventListener('click', blowOutCandles);
+}
+if (blowBtn) {
+  blowBtn.addEventListener('click', blowOutCandles);
+}
+if (cutBtn) {
+  cutBtn.addEventListener('click', triggerCut);
 }
 
 if (cake) {
@@ -165,9 +212,11 @@ function smallConfettiBurst() {
 
 /* ============ FINALE screen extra confetti + replay ============ */
 const finaleScreen = document.getElementById('screen-finale');
-document.querySelector('[data-next="screen-finale"]').addEventListener('click', () => {
-  setTimeout(fireConfetti, 400);
-});
+if (document.querySelector('[data-next="screen-finale"]')) {
+  document.querySelector('[data-next="screen-finale"]').addEventListener('click', () => {
+    setTimeout(fireConfetti, 400);
+  });
+}
 
 document.getElementById('replay-btn').addEventListener('click', () => {
   enteredPin = "";
@@ -178,9 +227,22 @@ document.getElementById('replay-btn').addEventListener('click', () => {
   const hint = document.getElementById('camera-hint');
   if (hint) hint.classList.remove('hidden');
   photosContinue.classList.add('hidden');
+  
+  // Reset VIP cake state
+  candlesBlown = false;
   cakeCut = false;
+  document.querySelectorAll('.flame').forEach(f => f.classList.remove('blown-out'));
+  document.querySelectorAll('.smoke').forEach(s => s.classList.remove('rising'));
   if (cake) cake.classList.remove('cut');
-  if (cakeHint) cakeHint.classList.remove('hidden');
+  if (knifeGuide) knifeGuide.classList.add('hidden');
+  if (blowBtn) blowBtn.classList.remove('hidden');
+  if (cutBtn) cutBtn.classList.add('hidden');
+  if (cakeEyebrow) cakeEyebrow.textContent = "✦ bước 1: ước nguyện & thổi nến ✦";
+  if (cakeTitle) cakeTitle.textContent = "Cùng ước nguyện tuổi 23 nhé!";
+  if (cakeHint) {
+    cakeHint.textContent = "Nhắm mắt ước một điều ước... rồi chạm vào nến để thổi nến nhé 🕯️✨";
+    cakeHint.classList.remove('hidden');
+  }
   if (cakeResult) cakeResult.classList.add('hidden');
   if (cakeContinue) cakeContinue.classList.add('hidden');
 
@@ -379,7 +441,7 @@ function registerVisitedGift(giftId) {
   }
 
   // If explored all 3, unlock done continue button
-  if (visitedGifts.size === 3) {
+  if (visitedGifts.size === 2) {
     const continueBtn = document.getElementById('gift-hub-continue-btn');
     if (continueBtn) {
       continueBtn.classList.add('unlocked');

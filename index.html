@@ -234,9 +234,9 @@
       <p class="photo-counter typewriter" id="photo-counter">0 / 3 bức ảnh</p>
 
       <div class="polaroid-row" id="polaroid-row">
-        <div class="polaroid hidden" data-caption="Nụ cười tỏa nắng ✨" data-img="assets/photos/t1.jpg">
+        <div class="polaroid hidden" data-caption="Pháo hoa rực rỡ ✨" data-img="assets/photos/t1.jpg">
           <div class="polaroid-img ph1"></div>
-          <p class="typewriter">Nụ cười tỏa nắng ✨</p>
+          <p class="typewriter">Pháo hoa rực rỡ ✨</p>
         </div>
         <div class="polaroid hidden" data-caption="Bên em là bình yên 🌿" data-img="assets/photos/t2.jpg">
           <div class="polaroid-img ph2"></div>
@@ -288,35 +288,119 @@
     </div>
   </section>
 
-  <!-- SCREEN 6: CAKE -->
+  <!-- SCREEN 6: CAKE (VIP PRO EDITION) -->
   <section class="screen" id="screen-cake">
-    <div class="scrapbook-page">
+    <div class="scrapbook-page cake-screen-page">
       <div class="scrapbook-header">
-        <span class="stamp-text">ước một điều ước 🎂</span>
+        <span class="stamp-text">make a wish 🎂</span>
         <span class="retro-star">★</span>
       </div>
 
-      <p class="eyebrow typewriter">✦ đến giờ cắt bánh rồi ✦</p>
-      <h2 class="section-title typewriter">Cùng cắt bánh sinh nhật nhé!</h2>
-      <p class="hint typewriter" id="cake-hint">Vuốt hoặc kéo ngang chiếc bánh để cắt một lát bánh nè</p>
+      <p class="eyebrow typewriter" id="cake-eyebrow">✦ bước 1: ước nguyện & thổi nến ✦</p>
+      <h2 class="section-title typewriter" id="cake-title">Cùng ước nguyện tuổi 23 nhé!</h2>
+      <p class="hint typewriter" id="cake-hint">Nhắm mắt ước một điều ước... rồi chạm vào nến để thổi nến nhé 🕯️✨</p>
 
-      <div class="cake-wrap" id="cake-wrap">
-        <div class="cake" id="cake">
-          <div class="cake-half left">
-            <div class="layer top"></div>
-            <div class="layer mid"></div>
-            <div class="layer bottom"></div>
+      <div class="cake-stage" id="cake-stage">
+        <!-- Golden 23 Crown Topper -->
+        <div class="cake-topper-badge" id="cake-topper">
+          <span class="topper-star">★</span>
+          <span class="topper-age">23</span>
+          <span class="topper-star">★</span>
+        </div>
+
+        <!-- Realistic 3D Birthday Candles with flickering flames -->
+        <div class="candles-container" id="candles-container">
+          <div class="candle candle-1">
+            <div class="flame" id="flame-1"></div>
+            <div class="smoke" id="smoke-1"></div>
+            <div class="wick"></div>
+            <div class="candle-stick"></div>
           </div>
-          <div class="cake-half right">
-            <div class="layer top"></div>
-            <div class="layer mid"></div>
-            <div class="layer bottom"></div>
+          <div class="candle candle-2">
+            <div class="flame" id="flame-2"></div>
+            <div class="smoke" id="smoke-2"></div>
+            <div class="wick"></div>
+            <div class="candle-stick"></div>
           </div>
-          <div class="candles">⭐🕯️🕯️🕯️⭐</div>
+          <div class="candle candle-3">
+            <div class="flame" id="flame-3"></div>
+            <div class="smoke" id="smoke-3"></div>
+            <div class="wick"></div>
+            <div class="candle-stick"></div>
+          </div>
+        </div>
+
+        <!-- 3D Delicious Birthday Cake -->
+        <div class="cake-wrap" id="cake-wrap">
+          <div class="cake" id="cake">
+            <!-- Left half of the cake -->
+            <div class="cake-half left">
+              <!-- Strawberry & Whipped Cream Toppings -->
+              <div class="toppings-row">
+                <span class="topping-item berry">🍓</span>
+                <span class="topping-item cream">☁️</span>
+                <span class="topping-item berry">🍓</span>
+              </div>
+              <div class="frosting-drips">
+                <span class="drip d1"></span>
+                <span class="drip d2"></span>
+                <span class="drip d3"></span>
+                <span class="drip d4"></span>
+              </div>
+              <div class="cake-sponge top-sponge">
+                <div class="sprinkles"></div>
+              </div>
+              <div class="jam-layer"></div>
+              <div class="cake-sponge bottom-sponge">
+                <div class="sprinkles"></div>
+              </div>
+            </div>
+
+            <!-- Right half of the cake -->
+            <div class="cake-half right">
+              <!-- Strawberry & Whipped Cream Toppings -->
+              <div class="toppings-row">
+                <span class="topping-item berry">🍓</span>
+                <span class="topping-item cream">☁️</span>
+                <span class="topping-item berry">🍓</span>
+              </div>
+              <div class="frosting-drips">
+                <span class="drip d1"></span>
+                <span class="drip d2"></span>
+                <span class="drip d3"></span>
+                <span class="drip d4"></span>
+              </div>
+              <div class="cake-sponge top-sponge">
+                <div class="sprinkles"></div>
+              </div>
+              <div class="jam-layer"></div>
+              <div class="cake-sponge bottom-sponge">
+                <div class="sprinkles"></div>
+              </div>
+            </div>
+
+            <!-- Slicing knife blade indicator -->
+            <div class="knife-guide hidden" id="knife-guide">
+              <span class="knife-icon">🔪 Kéo hoặc bấm để cắt</span>
+            </div>
+          </div>
+
+          <!-- Silver pedestal plate under cake -->
+          <div class="cake-pedestal"></div>
         </div>
       </div>
 
-      <p class="cake-result typewriter hidden" id="cake-result">✨ Cắt bánh khéo quá đi thôi! 🍰🍰🍰</p>
+      <!-- Interactive Action Buttons -->
+      <div class="cake-actions-wrap">
+        <button class="btn-continue cake-action-btn" id="blow-candle-btn">Thổi Nến 💨</button>
+        <button class="btn-continue cake-action-btn hidden" id="cut-cake-btn">Cắt Bánh Nè 🍰</button>
+      </div>
+
+      <div class="cake-result-box typewriter hidden" id="cake-result">
+        <p class="wish-granted">✨ Điều ước đã được gửi tới các vì sao! 🌟</p>
+        <p class="sweet-quote">Chúc <span class="recipient-name-fill">Kào</span> tuổi 23 luôn ngọt ngào, hạnh phúc và rạng rỡ như chiếc bánh kem này nhé! 🍰🎂🎉</p>
+      </div>
+
       <button class="btn-continue hidden" id="cake-continue" data-next="screen-choose-gift">Mở quà bất ngờ →</button>
     </div>
   </section>
@@ -367,7 +451,7 @@
         <span class="retro-star">★</span>
       </div>
 
-      <h2 class="flowers-title script">Bó hoa tặng cô công chúa của anh</h2>
+      <h2 class="flowers-title script">Bó hoa tặng bé iu của anh</h2>
 
       <div class="flowers-layout">
         <!-- Left side: Cute stick figure details -->
@@ -491,9 +575,9 @@
         <div class="accept-reveal-polaroid hidden" id="accept-reveal-polaroid">
           <div class="polaroid-tape"></div>
           <div class="polaroid-img-wrap">
-            <img src="assets/photos/lily_bouquet_3d.png" alt="Special surprise for Madam Ji">
+            <img src="assets/photos/p1.jpg" alt="Special surprise for Madam Ji">
           </div>
-          <p class="typewriter">Tặng cô công chúa của anh 🌸</p>
+          <p class="typewriter">Tặng bé iu của anh 🌸</p>
         </div>
 
         <!-- YES/NO dodge actions -->
@@ -521,13 +605,15 @@
         <p class="letter-body typewriter">
           Chúc mừng sinh nhật cô gái đáng yêu và đặc biệt nhất trong lòng anh! 🎉🎂<br><br>
           Cảm ơn em vì đã xuất hiện và đồng hành cùng anh. Ở bên cạnh em, từng câu chuyện vu vơ, từng tiếng cười đùa hay
-          những lúc cùng nhau chia sẻ mọi vui buồn trong cuộc sống đều trở thành những kỷ niệm vô giá đối với anh.
-          😂🤍<br><br>
-          Anh không phải là người khéo nói, nhưng anh luôn thật lòng biết ơn vì đã có em trong đời. Những lúc em thấy
-          mệt mỏi hay gặp bất kỳ khó khăn gì, hãy nhớ luôn có anh ở đây sẵn sàng lắng nghe và che chở cho em
-          nhé.<br><br>
-          Bước sang tuổi mới, anh chúc em luôn luôn xinh đẹp, rạng rỡ và tràn ngập hạnh phúc. Mong mọi ước mơ, dự định
-          của em đều sẽ sớm thành hiện thực. Hãy luôn giữ nụ cười thật tươi trên môi và mãi là chính em nhé.<br><br>
+          những lúc cùng nhau chia sẻ mọi vui buồn trong cuộc sống đều trở thành những kỷ niệm vô giá đối với
+          anh.<br><br>
+          Anh mong cuộc sống sẽ dịu dàng với em, và khi những ngày khó khăn tìm đến, anh mong em luôn đủ mạnh mẽ để bước
+          qua. Cô gái của anh mạnh mẽ mà, anh tin em sẽ làm được thôi.<br><br>
+          Nhưng mạnh mẽ không có nghĩa là lúc nào em cũng phải tự mình gánh vác mọi thứ. Những lúc mệt mỏi, cứ để anh
+          che chở, cứ dựa vào anh một chút nhé. Anh muốn em biết rằng em luôn có anh bên cạnh, và em không phải đối mặt
+          với mọi chuyện một mình.<br><br>
+          Chúc mừng sinh nhật cô gái của anh. Chúc em tuổi mới có thật nhiều niềm vui, bình yên và được làm những điều
+          em yêu thích.<br><br>
           Sinh nhật thật hạnh phúc và ấm áp nha em yêu! Yêu em rất nhiều. 🎂🌸✨
         </p>
         <p class="letter-sign script">Mãi bên em,<br><span class="sender-name-fill">Anh Yêu</span> 🌹</p>

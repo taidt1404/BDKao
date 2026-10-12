@@ -466,30 +466,351 @@ html,body{
 .ph3{ background-image: url('../assets/photos/t3.jpg'); }
 .ph4{ background-image: url('../assets/photos/t1.jpg'); }
 
-/* cake screen interactive cut */
-.cake-wrap{ margin-bottom:20px; display: flex; justify-content: center; }
-.cake{
-  position:relative;
-  width: 180px; height: 130px;
-  display:flex;
-  cursor:grab;
-  user-select:none;
-  touch-action:none;
+/* ============ VIP PRO 3D BIRTHDAY CAKE SYSTEM ============ */
+.cake-screen-page {
+  max-width: 480px;
 }
-.cake-half{ width:50%; position:relative; transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-.cake-half.left{ transform-origin:left center; }
-.cake-half.right{ transform-origin:right center; }
-.cake.cut .cake-half.left{ transform:translateX(-18px) rotate(-3deg); }
-.cake.cut .cake-half.right{ transform:translateX(18px) rotate(3deg); }
-.layer{ width:100%; }
 
-/* Red Velvet / White Cream Cake Topping */
-.layer.top{ height:30%; background:#ffffff; border-radius:10px 10px 0 0; border-bottom: 2px dashed var(--red-accent); }
-.layer.mid{ height:35%; background:#d63031; border-bottom: 2px dashed #ffffff; }
-.layer.bottom{ height:35%; background: var(--red-accent); border-radius:0 0 10px 10px; }
+.cake-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0 20px 0;
+  width: 100%;
+}
 
-.candles{ position:absolute; top:-24px; left:50%; transform:translateX(-50%); font-size:16px; }
-.cake-result{ color:var(--red-accent); font-weight: bold; margin-bottom:15px; font-size:14px; }
+/* Gold Crown 23 Cake Topper */
+.cake-topper-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #fff9db 0%, #ffe066 50%, #f59f00 100%);
+  border: 2px solid #e67700;
+  border-radius: 20px;
+  padding: 4px 14px;
+  box-shadow: 0 4px 10px rgba(230, 119, 0, 0.3);
+  margin-bottom: 8px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: #7f3900;
+  transform: rotate(-2deg);
+  animation: floatTopper 3s ease-in-out infinite alternate;
+  z-index: 5;
+}
+.cake-topper-badge .topper-age {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.cake-topper-badge .topper-star {
+  color: #d9480f;
+  font-size: 14px;
+}
+@keyframes floatTopper {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(-4px) rotate(2deg); }
+}
+
+/* 3D Real Birthday Candles */
+.candles-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: -6px;
+  z-index: 10;
+  cursor: pointer;
+}
+.candle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+.candle:hover {
+  transform: scale(1.1);
+}
+.candle-stick {
+  width: 10px;
+  height: 38px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffffff,
+    #ffffff 4px,
+    #ff6b8b 4px,
+    #ff6b8b 8px
+  );
+  border-radius: 3px 3px 1px 1px;
+  box-shadow: inset 1px 0 2px rgba(255,255,255,0.8), inset -1px 0 2px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.wick {
+  width: 2px;
+  height: 6px;
+  background: #333333;
+}
+.flame {
+  width: 12px;
+  height: 20px;
+  background: radial-gradient(ellipse at bottom, #ffffff 10%, #ffd43b 40%, #ff922b 70%, #fa5252 100%);
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 10px #ffe066, 0 0 20px #ff922b, 0 0 35px rgba(255, 146, 43, 0.5);
+  transform-origin: bottom center;
+  animation: flicker 0.9s infinite alternate ease-in-out;
+  margin-bottom: -1px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.flame.blown-out {
+  opacity: 0 !important;
+  transform: scale(0) !important;
+  box-shadow: none !important;
+}
+
+/* Realistic Smoke Puff */
+.smoke {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 8px;
+  background: rgba(180, 180, 180, 0.6);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+.smoke.rising {
+  animation: riseSmoke 1.6s forwards ease-out;
+}
+@keyframes riseSmoke {
+  0% { opacity: 0.8; transform: translateY(0) scale(1); }
+  50% { opacity: 0.4; transform: translateY(-18px) scale(2.2); }
+  100% { opacity: 0; transform: translateY(-36px) scale(3.5); }
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-1deg); }
+  25% { transform: scale(1.08, 0.94) rotate(2deg); }
+  50% { transform: scale(0.96, 1.05) rotate(-2deg); }
+  75% { transform: scale(1.04, 0.98) rotate(1deg); }
+  100% { transform: scale(0.98, 1.02) rotate(-1deg); }
+}
+
+/* Cake Wrapper & 3D Cake Structure */
+.cake-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cake {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  display: flex;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  border-radius: 12px 12px 6px 6px;
+  filter: drop-shadow(0 10px 18px rgba(163, 0, 30, 0.15));
+}
+.cake:active {
+  cursor: grabbing;
+}
+.cake-half {
+  width: 50%;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.cake-half.left {
+  transform-origin: left bottom;
+}
+.cake-half.right {
+  transform-origin: right bottom;
+}
+.cake.cut .cake-half.left {
+  transform: translateX(-24px) rotate(-4deg);
+}
+.cake.cut .cake-half.right {
+  transform: translateX(24px) rotate(4deg);
+}
+
+/* Strawberry & Cream Toppings */
+.toppings-row {
+  position: absolute;
+  top: -12px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 16px;
+  z-index: 6;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+.topping-item {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.topping-item.cream {
+  font-size: 14px;
+}
+
+/* Frosting Drips Layer */
+.frosting-drips {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 18px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 4;
+  pointer-events: none;
+}
+.frosting-drips .drip {
+  width: 22%;
+  height: 14px;
+  background: #ffffff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.06);
+}
+.frosting-drips .drip.d1 { height: 16px; }
+.frosting-drips .drip.d2 { height: 12px; }
+.frosting-drips .drip.d3 { height: 18px; }
+.frosting-drips .drip.d4 { height: 13px; }
+
+/* Cake Sponge Tiers */
+.cake-sponge {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.top-sponge {
+  height: 48%;
+  background: linear-gradient(to bottom, #ffffff 0%, #fff0f3 40%, #ffc2d1 100%);
+  border-radius: 12px 12px 0 0;
+  border-top: 3px solid #ffe3e8;
+}
+.cake-half.left .top-sponge {
+  border-top-left-radius: 14px;
+  border-top-right-radius: 0;
+}
+.cake-half.right .top-sponge {
+  border-top-right-radius: 14px;
+  border-top-left-radius: 0;
+}
+
+/* Berry Jam Filling Line */
+.jam-layer {
+  height: 10%;
+  background: linear-gradient(to bottom, #d62246, #a3001e);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  position: relative;
+}
+.jam-layer::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: #ffffff;
+  opacity: 0.4;
+}
+
+.bottom-sponge {
+  height: 42%;
+  background: linear-gradient(to bottom, #ff8fa3 0%, #c9184a 50%, #800f2f 100%);
+  box-shadow: inset 0 -3px 6px rgba(0,0,0,0.2);
+}
+.cake-half.left .bottom-sponge {
+  border-bottom-left-radius: 6px;
+}
+.cake-half.right .bottom-sponge {
+  border-bottom-right-radius: 6px;
+}
+
+/* Delicate Rainbow Sprinkles on Cake Sponge */
+.sprinkles {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(#ffffff 1px, transparent 1px),
+    radial-gradient(#ffd43b 1px, transparent 1px),
+    radial-gradient(#ff6b8b 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px, 4px 12px;
+  opacity: 0.4;
+}
+
+/* Silver Pedestal Cake Stand */
+.cake-pedestal {
+  width: 260px;
+  height: 14px;
+  background: linear-gradient(to right, #cfd8dc 0%, #ffffff 30%, #eceff1 50%, #b0bec5 85%, #90a4ae 100%);
+  border-radius: 50% 50% 30% 30% / 100% 100% 0% 0%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12), inset 0 2px 2px #ffffff;
+  margin-top: -3px;
+  border-bottom: 2px solid #78909c;
+}
+
+/* Knife Blade Guide */
+.knife-guide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px dashed var(--red-accent);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--red-accent);
+  pointer-events: none;
+  animation: pulseGuide 1.5s infinite ease-in-out;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(163,0,30,0.15);
+  z-index: 20;
+}
+@keyframes pulseGuide {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* Action Buttons Container */
+.cake-actions-wrap {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.cake-action-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+/* Cake Result Card */
+.cake-result-box {
+  background: #ffffff;
+  border: 2px solid #ffd3db;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 6px 16px rgba(163, 0, 30, 0.08);
+  animation: popInResult 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.cake-result-box .wish-granted {
+  color: var(--red-accent);
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.cake-result-box .sweet-quote {
+  color: var(--text-dark);
+  font-size: 13px;
+  line-height: 1.5;
+}
+@keyframes popInResult {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
 /* SCREEN 3: SCRAPBOOK LAYOUT FROM USER IMAGE */
 .letter-scrapbook {
@@ -932,8 +1253,11 @@ html,body{
   
   /* Screen 6: Cake */
   .cake {
-    width: 160px;
-    height: 115px;
+    width: 190px;
+    height: 125px;
+  }
+  .cake-pedestal {
+    width: 230px;
   }
 
   /* Screen 7: Gift Hub */
