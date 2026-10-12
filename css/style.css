@@ -20,16 +20,16 @@ html,body{
     linear-gradient(rgba(163, 0, 30, 0.08) 50%, transparent 50%);
   background-size: 32px 32px;
   color: var(--text-dark);
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   overflow-x: hidden;
 }
 
 .typewriter {
-  font-family: 'Special Elite', 'Courier New', monospace;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .font-stamp {
-  font-family: 'Special Elite', 'Courier New', monospace;
+  font-family: 'Times New Roman', Times, serif;
   text-transform: uppercase;
   color: var(--red-accent);
 }
@@ -271,7 +271,7 @@ html,body{
 }
 
 .stamp-text {
-  font-family: 'Special Elite', monospace;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 11px;
   font-weight: bold;
   text-transform: uppercase;
@@ -398,7 +398,7 @@ html,body{
   box-shadow: 0 4px 10px rgba(163, 0, 30, 0.15);
   transition: all 0.2s ease;
   margin-top: 10px;
-  font-family: 'Special Elite', monospace;
+  font-family: 'Times New Roman', Times, serif;
   text-transform: uppercase;
 }
 .btn-continue:hover{ 
@@ -1025,7 +1025,7 @@ html,body{
   justify-content: center;
   width: 38px;
   height: 44px;
-  font-family: 'Special Elite', 'Courier New', monospace;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 22px;
   font-weight: bold;
   color: #ffffff;
@@ -1059,7 +1059,7 @@ html,body{
 }
 
 .big-age-badge {
-  font-family: 'Special Elite', 'Courier New', monospace;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 64px;
   font-weight: bold;
   color: var(--red-accent);
@@ -1116,7 +1116,7 @@ html,body{
 }
 .game-btn {
   padding: 10px 24px;
-  font-family: 'Special Elite', 'Courier New', monospace;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 16px;
   font-weight: bold;
   border-radius: 6px;
@@ -1384,7 +1384,7 @@ html,body{
   content: "OPENED 🎉";
   position: absolute;
   bottom: 45px;
-  font-family: 'Special Elite', monospace;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 11px;
   font-weight: bold;
   color: #d63031;

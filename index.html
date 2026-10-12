@@ -1,558 +1,588 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Có một bất ngờ dành riêng cho em 🌸</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Có một bất ngờ dành riêng cho em 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<!-- SCRAPBOOK CORNER DECORATIONS & STICKERS -->
-<div class="scrapbook-decorations">
-  <!-- Wavy hand-drawn line borders framing the viewport -->
-  <div class="wavy-frame-left"></div>
-  <div class="wavy-frame-right"></div>
+  <!-- SCRAPBOOK CORNER DECORATIONS & STICKERS -->
+  <div class="scrapbook-decorations">
+    <!-- Wavy hand-drawn line borders framing the viewport -->
+    <div class="wavy-frame-left"></div>
+    <div class="wavy-frame-right"></div>
 
-  <!-- Hanging bunting banners -->
-  <div class="bunting-banner left-bunting">
-    <div class="bunting-flag red">★</div>
-    <div class="bunting-flag gold">🌸</div>
-    <div class="bunting-flag red">★</div>
-    <div class="bunting-flag gold">🌸</div>
-  </div>
-  <div class="bunting-banner right-bunting">
-    <div class="bunting-flag gold">🌸</div>
-    <div class="bunting-flag red">★</div>
-    <div class="bunting-flag gold">🌸</div>
-    <div class="bunting-flag red">★</div>
-  </div>
-
-  <!-- Corner Stickers -->
-  <div class="corner-sticker star-top-left">★</div>
-  <div class="corner-sticker camera-bottom-left">📷</div>
-  <div class="corner-sticker glass-top-right">🍹</div>
-  <div class="corner-sticker discoball-bottom-right">
-    <div class="disco-grid"></div>
-    <div class="disco-shine"></div>
-  </div>
-  <div class="corner-sticker star-bottom-right">★</div>
-  <div class="corner-sticker star2-bottom-right">★</div>
-</div>
-
-<div id="bg-flowers"></div>
-
-<!-- SCREEN 1: LOCK -->
-<section class="screen active" id="screen-lock">
-  <div class="scrapbook-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">bí mật 💌</span>
-      <span class="retro-star">★</span>
+    <!-- Hanging bunting banners -->
+    <div class="bunting-banner left-bunting">
+      <div class="bunting-flag red">★</div>
+      <div class="bunting-flag gold">🌸</div>
+      <div class="bunting-flag red">★</div>
+      <div class="bunting-flag gold">🌸</div>
     </div>
-    
-    <div class="mascot">🔒⭐💌</div>
-    <h1 class="glow-text typewriter">Có một bất ngờ đang đợi em...</h1>
-    <p class="hint typewriter">Nhập ngày đặc biệt của chúng mình nhé <span class="hint-tag">(DDMM)</span></p>
-    
-    <div class="pin-dots">
-      <span class="dot" data-i="0"></span>
-      <span class="dot" data-i="1"></span>
-      <span class="dot" data-i="2"></span>
-      <span class="dot" data-i="3"></span>
+    <div class="bunting-banner right-bunting">
+      <div class="bunting-flag gold">🌸</div>
+      <div class="bunting-flag red">★</div>
+      <div class="bunting-flag gold">🌸</div>
+      <div class="bunting-flag red">★</div>
     </div>
-    
-    <div class="numpad" id="numpad">
-      <button data-num="1">1</button>
-      <button data-num="2">2</button>
-      <button data-num="3">3</button>
-      <button data-num="4">4</button>
-      <button data-num="5">5</button>
-      <button data-num="6">6</button>
-      <button data-num="7">7</button>
-      <button data-num="8">8</button>
-      <button data-num="9">9</button>
-      <button class="ghost" disabled></button>
-      <button data-num="0">0</button>
-      <button id="backspace">⌫</button>
-    </div>
-    <p class="error-msg typewriter" id="error-msg">Chưa đúng rồi nè... thử lại xem nào 💭</p>
-  </div>
-</section>
 
-<!-- SCREEN 2: REVEAL -->
-<section class="screen" id="screen-reveal">
-  <div class="scrapbook-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">mở khóa thành công 💌</span>
-      <span class="retro-star">★</span>
+    <!-- Corner Stickers -->
+    <div class="corner-sticker star-top-left">★</div>
+    <div class="corner-sticker camera-bottom-left">📷</div>
+    <div class="corner-sticker glass-top-right">🍹</div>
+    <div class="corner-sticker discoball-bottom-right">
+      <div class="disco-grid"></div>
+      <div class="disco-shine"></div>
     </div>
-    
-    <p class="eyebrow typewriter">✦ phiên bản sinh nhật đặc biệt ✦</p>
-    
-    <!-- Cutout letters collage -->
-    <div class="collage-container">
-      <div class="collage-word">
-        <span class="cutout-letter char-h">H</span>
-        <span class="cutout-letter char-a">A</span>
-        <span class="cutout-letter char-p">P</span>
-        <span class="cutout-letter char-p">P</span>
-        <span class="cutout-letter char-y">Y</span>
+    <div class="corner-sticker star-bottom-right">★</div>
+    <div class="corner-sticker star2-bottom-right">★</div>
+  </div>
+
+  <div id="bg-flowers"></div>
+
+  <!-- SCREEN 1: LOCK -->
+  <section class="screen active" id="screen-lock">
+    <div class="scrapbook-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">bí mật 💌</span>
+        <span class="retro-star">★</span>
       </div>
-      <div class="collage-word">
-        <span class="cutout-letter char-b">B</span>
-        <span class="cutout-letter char-i">I</span>
-        <span class="cutout-letter char-r">R</span>
-        <span class="cutout-letter char-t">T</span>
-        <span class="cutout-letter char-h">H</span>
-        <span class="cutout-letter char-d">D</span>
-        <span class="cutout-letter char-a">A</span>
-        <span class="cutout-letter char-y">Y</span>
-      </div>
-    </div>
-    
-    <p class="the-big-tag typewriter">CHÀO ĐÓN TUỔI</p>
-    <div class="big-age-badge" id="age-fill">20</div>
-    
-    <p class="sub typewriter">Hôm nay là ngày tuyệt vời nhất dành riêng cho em, <span id="name-fill" class="highlight-name">Em Yêu</span>! 🌸</p>
-    <button class="btn-continue" data-next="screen-music">Khám phá tiếp nè →</button>
-  </div>
-</section>
 
-<!-- SCREEN 3: VINYL & FLORK MUSIC SCREEN -->
-<section class="screen" id="screen-music">
-  <div class="scrapbook-page letter-scrapbook">
-    <div class="scrapbook-header">
-      <span class="stamp-text">chúc mừng sinh nhật</span>
-      <span class="retro-star">★</span>
+      <div class="mascot">🔒⭐💌</div>
+      <h1 class="glow-text typewriter">Có một bất ngờ đang đợi em...</h1>
+      <!-- <p class="hint typewriter">Nhập ngày đặc biệt của chúng mình nhé <span class="hint-tag">(DDMM)</span></p> -->
+
+      <div class="pin-dots">
+        <span class="dot" data-i="0"></span>
+        <span class="dot" data-i="1"></span>
+        <span class="dot" data-i="2"></span>
+        <span class="dot" data-i="3"></span>
+      </div>
+
+      <div class="numpad" id="numpad">
+        <button data-num="1">1</button>
+        <button data-num="2">2</button>
+        <button data-num="3">3</button>
+        <button data-num="4">4</button>
+        <button data-num="5">5</button>
+        <button data-num="6">6</button>
+        <button data-num="7">7</button>
+        <button data-num="8">8</button>
+        <button data-num="9">9</button>
+        <button class="ghost" disabled></button>
+        <button data-num="0">0</button>
+        <button id="backspace">⌫</button>
+      </div>
+      <p class="error-msg typewriter" id="error-msg">Chưa đúng rồi nè... thử lại xem nào 💭</p>
     </div>
-    
-    <div class="scrapbook-row">
-      <!-- Left side: Vinyl record & Spotify widget -->
-      <div class="scrapbook-item-card vinyl-card">
-        <div class="vinyl-record-container">
-          <div class="vinyl-record" id="vinyl-record">
-            <div class="vinyl-groove"></div>
-            <div class="vinyl-label">
-              <span class="vinyl-heart">🌸</span>
+  </section>
+
+  <!-- SCREEN 2: REVEAL -->
+  <section class="screen" id="screen-reveal">
+    <div class="scrapbook-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">mở khóa thành công 💌</span>
+        <span class="retro-star">★</span>
+      </div>
+
+      <p class="eyebrow typewriter">✦ phiên bản sinh nhật đặc biệt ✦</p>
+
+      <!-- Cutout letters collage -->
+      <div class="collage-container">
+        <div class="collage-word">
+          <span class="cutout-letter char-h">H</span>
+          <span class="cutout-letter char-a">A</span>
+          <span class="cutout-letter char-p">P</span>
+          <span class="cutout-letter char-p">P</span>
+          <span class="cutout-letter char-y">Y</span>
+        </div>
+        <div class="collage-word">
+          <span class="cutout-letter char-b">B</span>
+          <span class="cutout-letter char-i">I</span>
+          <span class="cutout-letter char-r">R</span>
+          <span class="cutout-letter char-t">T</span>
+          <span class="cutout-letter char-h">H</span>
+          <span class="cutout-letter char-d">D</span>
+          <span class="cutout-letter char-a">A</span>
+          <span class="cutout-letter char-y">Y</span>
+        </div>
+      </div>
+
+      <p class="the-big-tag typewriter">CHÀO ĐÓN TUỔI</p>
+      <div class="big-age-badge" id="age-fill">23</div>
+
+      <p class="sub typewriter">Hôm nay là ngày tuyệt vời nhất dành riêng cho em, <span id="name-fill"
+          class="highlight-name">Em Yêu</span>! 🌸</p>
+      <button class="btn-continue" data-next="screen-music">Khám phá tiếp nè →</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: VINYL & FLORK MUSIC SCREEN -->
+  <section class="screen" id="screen-music">
+    <div class="scrapbook-page letter-scrapbook">
+      <div class="scrapbook-header">
+        <span class="stamp-text">chúc mừng sinh nhật</span>
+        <span class="retro-star">★</span>
+      </div>
+
+      <div class="scrapbook-row">
+        <!-- Left side: Vinyl record & Spotify widget -->
+        <div class="scrapbook-item-card vinyl-card">
+          <div class="vinyl-record-container">
+            <div class="vinyl-record" id="vinyl-record">
+              <div class="vinyl-groove"></div>
+              <div class="vinyl-label">
+                <span class="vinyl-heart">🌸</span>
+              </div>
+            </div>
+            <div class="tonearm" id="tonearm"></div>
+          </div>
+
+          <p class="vinyl-quote typewriter">
+            VÀ BỖNG NHIÊN,<br>MỖI NGÀY TRÔI QUA<br>ĐỀU TRỞ NÊN Ý NGHĨA HƠN<br>KHI CÓ <span class="highlight-you">em bên
+              cạnh ★</span>
+          </p>
+
+          <!-- Custom Spotify-style Widget -->
+          <div class="spotify-widget">
+            <div class="spotify-cover">
+              <div class="spotify-cover-svg">🎙️</div>
+            </div>
+            <div class="spotify-details">
+              <div class="spotify-title typewriter">chờ chút... 🌸</div>
+              <div class="spotify-artist typewriter">CONGB</div>
+            </div>
+            <button class="spotify-play-btn" id="spotify-play-btn">▶</button>
+          </div>
+        </div>
+
+        <!-- Right side: Cute Flork sticker card with Interactive Secret Note -->
+        <div class="scrapbook-item-card flork-card">
+          <div class="flork-sketch">
+            <!-- Inline Hand-drawn Style Flork SVG -->
+            <svg viewBox="0 0 100 90" class="flork-svg">
+              <path d="M35 85 C35 30, 65 30, 65 85" fill="#ffffff" stroke="#a3001e" stroke-width="3"
+                stroke-linecap="round" />
+              <path d="M40 55 L15 55" fill="none" stroke="#a3001e" stroke-width="3" stroke-linecap="round" />
+              <path d="M60 55 L85 55" fill="none" stroke="#a3001e" stroke-width="3" stroke-linecap="round" />
+              <circle cx="46" cy="46" r="2.5" fill="#a3001e" />
+              <circle cx="54" cy="46" r="2.5" fill="#a3001e" />
+              <path d="M48 51 Q50 53, 52 51" fill="none" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="42" cy="49" r="2" fill="#ffccd5" />
+              <circle cx="58" cy="49" r="2" fill="#ffccd5" />
+            </svg>
+          </div>
+
+          <p class="flork-text-so typewriter">Em chính là...</p>
+          <h2 class="flork-much font-stamp">ĐIỀU TUYỆT VỜI NHẤT ★</h2>
+
+          <div class="flork-sticker-seal">
+            <span class="interactive-envelope" id="secret-envelope-btn"
+              title="Bấm để mở lời nhắn bí mật nè! 💌">💌</span>
+            <span class="star-seal">⭐</span>
+          </div>
+
+          <!-- Secret Message Pop-up Note (hidden by default) -->
+          <div class="secret-message-overlay hidden" id="secret-message-popup">
+            <div class="secret-notebook-paper">
+              <span class="close-secret-btn" id="close-secret-btn">×</span>
+              <p class="secret-note-greeting script">Tái bút: Gửi <span class="recipient-name-fill">Em Yêu</span>...</p>
+              <p class="secret-note-text typewriter">
+                Dù đôi lúc anh vụng về chẳng nói hết thành lời, nhưng từ ngày có em, thế giới của anh trở nên ấm áp và
+                hạnh phúc hơn rất nhiều. Em là nơi bình yên nhất, là nụ cười mỗi ngày của anh. Chúc mừng sinh nhật cô
+                gái của anh! 🌸
+              </p>
+              <p class="secret-note-sign script">— <span class="sender-name-fill">Anh Yêu</span></p>
             </div>
           </div>
-          <div class="tonearm" id="tonearm"></div>
-        </div>
-        
-        <p class="vinyl-quote typewriter">
-          VÀ BỖNG NHIÊN,<br>MỖI NGÀY TRÔI QUA<br>ĐỀU TRỞ NÊN Ý NGHĨA HƠN<br>KHI CÓ <span class="highlight-you">em bên cạnh ★</span>
-        </p>
-        
-        <!-- Custom Spotify-style Widget -->
-        <div class="spotify-widget">
-          <div class="spotify-cover">
-            <div class="spotify-cover-svg">🎙️</div>
-          </div>
-          <div class="spotify-details">
-            <div class="spotify-title typewriter">chờ chút... 🌸</div>
-            <div class="spotify-artist typewriter">CONGB</div>
-          </div>
-          <button class="spotify-play-btn" id="spotify-play-btn">▶</button>
         </div>
       </div>
-      
-      <!-- Right side: Cute Flork sticker card with Interactive Secret Note -->
-      <div class="scrapbook-item-card flork-card">
-        <div class="flork-sketch">
-          <!-- Inline Hand-drawn Style Flork SVG -->
-          <svg viewBox="0 0 100 90" class="flork-svg">
-            <path d="M35 85 C35 30, 65 30, 65 85" fill="#ffffff" stroke="#a3001e" stroke-width="3" stroke-linecap="round"/>
-            <path d="M40 55 L15 55" fill="none" stroke="#a3001e" stroke-width="3" stroke-linecap="round"/>
-            <path d="M60 55 L85 55" fill="none" stroke="#a3001e" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="46" cy="46" r="2.5" fill="#a3001e"/>
-            <circle cx="54" cy="46" r="2.5" fill="#a3001e"/>
-            <path d="M48 51 Q50 53, 52 51" fill="none" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="42" cy="49" r="2" fill="#ffccd5"/>
-            <circle cx="58" cy="49" r="2" fill="#ffccd5"/>
-          </svg>
-        </div>
-        
-        <p class="flork-text-so typewriter">Em chính là...</p>
-        <h2 class="flork-much font-stamp">ĐIỀU TUYỆT VỜI NHẤT ★</h2>
-        
-        <div class="flork-sticker-seal">
-          <span class="interactive-envelope" id="secret-envelope-btn" title="Bấm để mở lời nhắn bí mật nè! 💌">💌</span>
-          <span class="star-seal">⭐</span>
-        </div>
-        
-        <!-- Secret Message Pop-up Note (hidden by default) -->
-        <div class="secret-message-overlay hidden" id="secret-message-popup">
-          <div class="secret-notebook-paper">
-            <span class="close-secret-btn" id="close-secret-btn">×</span>
-            <p class="secret-note-greeting script">Tái bút: Gửi <span class="recipient-name-fill">Em Yêu</span>...</p>
-            <p class="secret-note-text typewriter">
-              Dù đôi lúc anh vụng về chẳng nói hết thành lời, nhưng từ ngày có em, thế giới của anh trở nên ấm áp và hạnh phúc hơn rất nhiều. Em là nơi bình yên nhất, là nụ cười mỗi ngày của anh. Chúc mừng sinh nhật cô gái của anh! 🌸
-            </p>
-            <p class="secret-note-sign script">— <span class="sender-name-fill">Anh Yêu</span></p>
+
+      <div class="scrapbook-footer">
+        <div class="disco-ball-wrap">
+          <div class="disco-ball">
+            <div class="disco-shine"></div>
           </div>
         </div>
+        <button class="btn-continue" data-next="screen-photos">Xem tiếp nè →</button>
       </div>
     </div>
-    
-    <div class="scrapbook-footer">
-      <div class="disco-ball-wrap">
-        <div class="disco-ball">
-          <div class="disco-shine"></div>
+  </section>
+
+  <!-- SCREEN 4: PHOTO REVEAL -->
+  <section class="screen" id="screen-photos">
+    <div class="scrapbook-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">khoảnh khắc 📸</span>
+        <span class="retro-star">★</span>
+      </div>
+
+      <p class="eyebrow typewriter">✦ chiếc máy ảnh kỷ niệm ✦</p>
+      <h2 class="section-title typewriter">Những khoảnh khắc anh lưu giữ</h2>
+      <p class="camera-hint typewriter" id="camera-hint"
+        style="font-size: 11px; color: var(--muted-brown); margin-bottom: 8px;">(Chạm vào máy ảnh để mở từng bức ảnh
+        nhé! 📷)</p>
+      <div class="camera-click" id="camera-click">📷</div>
+      <p class="photo-counter typewriter" id="photo-counter">0 / 3 bức ảnh</p>
+
+      <div class="polaroid-row" id="polaroid-row">
+        <div class="polaroid hidden" data-caption="Nụ cười tỏa nắng ✨" data-img="assets/photos/t1.jpg">
+          <div class="polaroid-img ph1"></div>
+          <p class="typewriter">Nụ cười tỏa nắng ✨</p>
+        </div>
+        <div class="polaroid hidden" data-caption="Bên em là bình yên 🌿" data-img="assets/photos/t2.jpg">
+          <div class="polaroid-img ph2"></div>
+          <p class="typewriter">Bên em là bình yên 🌿</p>
+        </div>
+        <div class="polaroid hidden" data-caption="Mãi bên nhau nhé 🤍✨" data-img="assets/photos/t3.jpg">
+          <div class="polaroid-img ph3"></div>
+          <p class="typewriter">Mãi bên nhau nhé 🤍✨</p>
         </div>
       </div>
-      <button class="btn-continue" data-next="screen-photos">Xem tiếp nè →</button>
-    </div>
-  </div>
-</section>
+      <p class="zoom-hint typewriter"
+        style="font-size: 11px; color: var(--muted-brown); margin-top: -6px; margin-bottom: 12px;">(💡 Bấm vào ảnh để
+        phóng to ngắm nhìn nhé!)</p>
 
-<!-- SCREEN 4: PHOTO REVEAL -->
-<section class="screen" id="screen-photos">
-  <div class="scrapbook-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">khoảnh khắc 📸</span>
-      <span class="retro-star">★</span>
+      <button class="btn-continue hidden" id="photos-continue" data-next="screen-story">Xem tiếp nè →</button>
     </div>
-    
-    <p class="eyebrow typewriter">✦ chiếc máy ảnh kỷ niệm ✦</p>
-    <h2 class="section-title typewriter">Những khoảnh khắc anh lưu giữ</h2>
-    <p class="camera-hint typewriter" id="camera-hint" style="font-size: 11px; color: var(--muted-brown); margin-bottom: 8px;">(Chạm vào máy ảnh để mở từng bức ảnh nhé! 📷)</p>
-    <div class="camera-click" id="camera-click">📷</div>
-    <p class="photo-counter typewriter" id="photo-counter">0 / 3 bức ảnh</p>
-    
-    <div class="polaroid-row" id="polaroid-row">
-      <div class="polaroid hidden" data-caption="Nụ cười tỏa nắng ✨" data-img="assets/photos/t1.jpg">
-        <div class="polaroid-img ph1"></div>
-        <p class="typewriter">Nụ cười tỏa nắng ✨</p>
-      </div>
-      <div class="polaroid hidden" data-caption="Bên em là bình yên 🌿" data-img="assets/photos/t2.jpg">
-        <div class="polaroid-img ph2"></div>
-        <p class="typewriter">Bên em là bình yên 🌿</p>
-      </div>
-      <div class="polaroid hidden" data-caption="Mãi bên nhau nhé 🤍✨" data-img="assets/photos/t3.jpg">
-        <div class="polaroid-img ph3"></div>
-        <p class="typewriter">Mãi bên nhau nhé 🤍✨</p>
-      </div>
-    </div>
-    <p class="zoom-hint typewriter" style="font-size: 11px; color: var(--muted-brown); margin-top: -6px; margin-bottom: 12px;">(💡 Bấm vào ảnh để phóng to ngắm nhìn nhé!)</p>
-    
-    <button class="btn-continue hidden" id="photos-continue" data-next="screen-story">Xem tiếp nè →</button>
-  </div>
-</section>
+  </section>
 
-<!-- SCREEN 5: OUR STORY -->
-<section class="screen" id="screen-story">
-  <div class="scrapbook-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">kỷ niệm 🌿</span>
-      <span class="retro-star">★</span>
-    </div>
-    
-    <p class="eyebrow typewriter">✦ chuyện chúng mình ✦</p>
-    <h2 class="section-title script">Hành trình yêu thương</h2>
-    
-    <div class="polaroid-row">
-      <div class="polaroid" data-caption="Khoảnh khắc ngọt ngào 💕" data-img="assets/photos/t1.jpg">
-        <div class="polaroid-img ph1"></div>
-        <p class="typewriter">Khoảnh khắc ngọt ngào 💕</p>
+  <!-- SCREEN 5: OUR STORY -->
+  <section class="screen" id="screen-story">
+    <div class="scrapbook-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">kỷ niệm 🌿</span>
+        <span class="retro-star">★</span>
       </div>
-      <div class="polaroid" data-caption="Em là điều đẹp đẽ nhất 🌸" data-img="assets/photos/t2.jpg">
-        <div class="polaroid-img ph2"></div>
-        <p class="typewriter">Em là điều đẹp đẽ nhất 🌸</p>
-      </div>
-      <div class="polaroid" data-caption="Mãi thương em như ngày đầu ✨" data-img="assets/photos/t3.jpg">
-        <div class="polaroid-img ph3"></div>
-        <p class="typewriter">Mãi thương em như ngày đầu ✨</p>
-      </div>
-    </div>
-    <p class="zoom-hint typewriter" style="font-size: 11px; color: var(--muted-brown); margin-top: -6px; margin-bottom: 12px;">(💡 Bấm vào ảnh để phóng to ngắm nhìn nhé!)</p>
-    
-    <button class="btn-continue" data-next="screen-cake">Cắt bánh sinh nhật →</button>
-  </div>
-</section>
 
-<!-- SCREEN 6: CAKE -->
-<section class="screen" id="screen-cake">
-  <div class="scrapbook-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">ước một điều ước 🎂</span>
-      <span class="retro-star">★</span>
-    </div>
-    
-    <p class="eyebrow typewriter">✦ đến giờ cắt bánh rồi ✦</p>
-    <h2 class="section-title typewriter">Cùng cắt bánh sinh nhật nhé!</h2>
-    <p class="hint typewriter" id="cake-hint">Vuốt hoặc kéo ngang chiếc bánh để cắt một lát bánh nè</p>
-    
-    <div class="cake-wrap" id="cake-wrap">
-      <div class="cake" id="cake">
-        <div class="cake-half left">
-          <div class="layer top"></div>
-          <div class="layer mid"></div>
-          <div class="layer bottom"></div>
+      <p class="eyebrow typewriter">✦ chuyện chúng mình ✦</p>
+      <h2 class="section-title script">Hành trình yêu thương</h2>
+
+      <div class="polaroid-row">
+        <div class="polaroid" data-caption="Khoảnh khắc ngọt ngào 💕" data-img="assets/photos/t1.jpg">
+          <div class="polaroid-img ph1"></div>
+          <p class="typewriter">Khoảnh khắc ngọt ngào 💕</p>
         </div>
-        <div class="cake-half right">
-          <div class="layer top"></div>
-          <div class="layer mid"></div>
-          <div class="layer bottom"></div>
+        <div class="polaroid" data-caption="Em là điều đẹp đẽ nhất 🌸" data-img="assets/photos/t2.jpg">
+          <div class="polaroid-img ph2"></div>
+          <p class="typewriter">Em là điều đẹp đẽ nhất 🌸</p>
         </div>
-        <div class="candles">⭐🕯️🕯️🕯️⭐</div>
+        <div class="polaroid" data-caption="Mãi thương em như ngày đầu ✨" data-img="assets/photos/t3.jpg">
+          <div class="polaroid-img ph3"></div>
+          <p class="typewriter">Mãi thương em như ngày đầu ✨</p>
+        </div>
       </div>
-    </div>
-    
-    <p class="cake-result typewriter hidden" id="cake-result">✨ Cắt bánh khéo quá đi thôi! 🍰🍰🍰</p>
-    <button class="btn-continue hidden" id="cake-continue" data-next="screen-choose-gift">Mở quà bất ngờ →</button>
-  </div>
-</section>
+      <p class="zoom-hint typewriter"
+        style="font-size: 11px; color: var(--muted-brown); margin-top: -6px; margin-bottom: 12px;">(💡 Bấm vào ảnh để
+        phóng to ngắm nhìn nhé!)</p>
 
-<!-- SCREEN 7: CHOOSE YOUR GIFTS (NEW PAGE HUB) -->
-<section class="screen" id="screen-choose-gift">
-  <div class="scrapbook-page gift-hub-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">quà tặng đặc biệt 🎁</span>
-      <span class="retro-star">★</span>
+      <button class="btn-continue" data-next="screen-cake">Cắt bánh sinh nhật →</button>
     </div>
-    
-    <h2 class="section-title font-stamp">Món Quà Dành Cho Em</h2>
-    <p class="sub typewriter">Hãy chạm vào từng món quà để mở những điều bất ngờ anh chuẩn bị nhé! 🎁</p>
-    
-    <div class="gift-options-row">
-      <!-- Gift 1: Envelope -->
-      <div class="gift-option-box tape-pink" id="gift-envelope-box">
-        <div class="tape-sticker gold"></div>
-        <div class="gift-visual envelope-visual">
-          <div class="custom-envelope">
-            <span class="daisy-seal">🌼</span>
+  </section>
+
+  <!-- SCREEN 6: CAKE -->
+  <section class="screen" id="screen-cake">
+    <div class="scrapbook-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">ước một điều ước 🎂</span>
+        <span class="retro-star">★</span>
+      </div>
+
+      <p class="eyebrow typewriter">✦ đến giờ cắt bánh rồi ✦</p>
+      <h2 class="section-title typewriter">Cùng cắt bánh sinh nhật nhé!</h2>
+      <p class="hint typewriter" id="cake-hint">Vuốt hoặc kéo ngang chiếc bánh để cắt một lát bánh nè</p>
+
+      <div class="cake-wrap" id="cake-wrap">
+        <div class="cake" id="cake">
+          <div class="cake-half left">
+            <div class="layer top"></div>
+            <div class="layer mid"></div>
+            <div class="layer bottom"></div>
+          </div>
+          <div class="cake-half right">
+            <div class="layer top"></div>
+            <div class="layer mid"></div>
+            <div class="layer bottom"></div>
+          </div>
+          <div class="candles">⭐🕯️🕯️🕯️⭐</div>
+        </div>
+      </div>
+
+      <p class="cake-result typewriter hidden" id="cake-result">✨ Cắt bánh khéo quá đi thôi! 🍰🍰🍰</p>
+      <button class="btn-continue hidden" id="cake-continue" data-next="screen-choose-gift">Mở quà bất ngờ →</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 7: CHOOSE YOUR GIFTS (NEW PAGE HUB) -->
+  <section class="screen" id="screen-choose-gift">
+    <div class="scrapbook-page gift-hub-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">quà tặng đặc biệt 🎁</span>
+        <span class="retro-star">★</span>
+      </div>
+
+      <h2 class="section-title font-stamp">Món Quà Dành Cho Em</h2>
+      <p class="sub typewriter">Hãy chạm vào từng món quà để mở những điều bất ngờ anh chuẩn bị nhé! 🎁</p>
+
+      <div class="gift-options-row">
+        <!-- Gift 1: Envelope -->
+        <div class="gift-option-box tape-pink" id="gift-envelope-box">
+          <div class="tape-sticker gold"></div>
+          <div class="gift-visual envelope-visual">
+            <div class="custom-envelope">
+              <span class="daisy-seal">🌼</span>
+            </div>
+          </div>
+          <span class="gift-tag-label typewriter">Bức Thư Tay</span>
+        </div>
+
+        <!-- Gift 3: Mystery Box -->
+        <div class="gift-option-box tape-yellow" id="gift-box-box">
+          <div class="tape-sticker gold"></div>
+          <div class="gift-visual box-visual">
+            <div class="custom-box shake-box">🎁</div>
+          </div>
+          <span class="gift-tag-label typewriter">Hộp Bí Mật</span>
+        </div>
+      </div>
+
+      <!-- Navigation button to final screen, unlocked when they explore -->
+      <button class="btn-continue" id="gift-hub-continue-btn" data-next="screen-finale">Món quà cuối cùng →</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 7-A: FLOWERS SCREEN -->
+  <section class="screen" id="screen-gift-flowers">
+    <div class="scrapbook-page flowers-reveal-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">bó hoa xinh 🌹</span>
+        <span class="retro-star">★</span>
+      </div>
+
+      <h2 class="flowers-title script">Bó hoa tặng cô công chúa của anh</h2>
+
+      <div class="flowers-layout">
+        <!-- Left side: Cute stick figure details -->
+        <div class="flowers-details">
+
+          <div class="cute-creature-sketch">
+            <svg viewBox="0 0 100 100" class="creature-svg">
+              <!-- Head background & outline -->
+              <ellipse cx="50" cy="40" rx="34" ry="28" fill="#ebdbe8" stroke="#a3001e" stroke-width="3" />
+
+              <!-- Blush lines (left) -->
+              <line x1="24" y1="46" x2="27" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="28" y1="46" x2="31" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="32" y1="46" x2="35" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
+
+              <!-- Blush lines (right) -->
+              <line x1="65" y1="46" x2="68" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="69" y1="46" x2="72" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="73" y1="46" x2="76" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
+
+              <!-- Eyes -->
+              <ellipse cx="36" cy="38" rx="16" ry="14" fill="#a3001e" />
+              <ellipse cx="64" cy="38" rx="16" ry="14" fill="#a3001e" />
+
+              <!-- Left Eye Heart Shine -->
+              <path
+                d="M36 41 C36 41, 31 38, 31 35 C31 32.5, 33.5 31.5, 36 34.5 C38.5 31.5, 41 32.5, 41 35 C41 38, 36 41, 36 41 Z"
+                fill="#ffffff" transform="rotate(-10 36 36)" />
+              <ellipse cx="28" cy="32" rx="3" ry="2" fill="#ffffff" transform="rotate(-15 28 32)" />
+
+              <!-- Right Eye Heart Shine -->
+              <path
+                d="M64 41 C64 41, 59 38, 59 35 C59 32.5, 61.5 31.5, 64 34.5 C66.5 31.5, 69 32.5, 69 35 C69 38, 64 41, 64 41 Z"
+                fill="#ffffff" transform="rotate(10 64 36)" />
+              <ellipse cx="72" cy="32" rx="3" ry="2" fill="#ffffff" transform="rotate(15 72 32)" />
+
+              <!-- Shy Mouth -->
+              <path d="M44 50 Q50 53, 56 50" fill="none" stroke="#a3001e" stroke-width="3" stroke-linecap="round" />
+
+              <!-- Shy Body -->
+              <path d="M38 64 L38 88 C38 92, 47 92, 47 88 L47 80 L53 80 L53 88 C53 92, 62 92, 62 88 L62 64"
+                fill="#ebdbe8" stroke="#a3001e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M37 68 C39 74, 46 76, 49 76 C46 76, 42 78, 41 82" fill="none" stroke="#a3001e" stroke-width="3"
+                stroke-linecap="round" />
+              <path d="M63 68 C61 74, 54 76, 51 76 C54 76, 58 78, 59 82" fill="none" stroke="#a3001e" stroke-width="3"
+                stroke-linecap="round" />
+              <circle cx="50" cy="76" r="2.5" fill="#a3001e" />
+            </svg>
+            <div class="creature-bubble bg-purple typewriter">người anh yêu nhất</div>
+            <div class="creature-bubble bg-rose typewriter">fan số 1 của em ❤️</div>
           </div>
         </div>
-        <span class="gift-tag-label typewriter">Bức Thư Tay</span>
-      </div>
-      
-      <!-- Gift 2: Bouquet -->
-      <div class="gift-option-box tape-green" id="gift-bouquet-box">
-        <div class="tape-sticker red"></div>
-        <div class="gift-visual bouquet-visual">
-          <div class="custom-bouquet">💐</div>
-        </div>
-        <span class="gift-tag-label typewriter">Bó Hoa Tươi</span>
-      </div>
-      
-      <!-- Gift 3: Mystery Box -->
-      <div class="gift-option-box tape-yellow" id="gift-box-box">
-        <div class="tape-sticker gold"></div>
-        <div class="gift-visual box-visual">
-          <div class="custom-box shake-box">🎁</div>
-        </div>
-        <span class="gift-tag-label typewriter">Hộp Bí Mật</span>
-      </div>
-    </div>
-    
-    <!-- Navigation button to final screen, unlocked when they explore -->
-    <button class="btn-continue" id="gift-hub-continue-btn" data-next="screen-finale">Món quà cuối cùng →</button>
-  </div>
-</section>
 
-<!-- SCREEN 7-A: FLOWERS SCREEN -->
-<section class="screen" id="screen-gift-flowers">
-  <div class="scrapbook-page flowers-reveal-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">bó hoa xinh 🌹</span>
-      <span class="retro-star">★</span>
+        <!-- Right side: Big bouquet representation -->
+        <div class="bouquet-big-card">
+          <img src="assets/photos/rose_bouquet_3d.png" class="bouquet-img" alt="Bouquet for Madam Ji">
+        </div>
+      </div>
+
+      <button class="btn-continue back-to-gifts-btn">← Quay lại chọn quà</button>
     </div>
-    
-    <h2 class="flowers-title script">Bó hoa tặng cô công chúa của anh</h2>
-    
-    <div class="flowers-layout">
-      <!-- Left side: Cute stick figure details -->
-      <div class="flowers-details">
-        
-        <div class="cute-creature-sketch">
+  </section>
+
+  <!-- SCREEN 7-B: SURPRISE ACCEPT GAME SCREEN -->
+  <section class="screen" id="screen-gift-accept">
+    <div class="scrapbook-page accept-game-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">nhận quà nha 🎁</span>
+        <span class="retro-star">★</span>
+      </div>
+
+      <h2 class="section-title font-stamp" id="accept-title-text">EM CÓ ĐỒNG Ý NHẬN QUÀ CỦA ANH HÔNG? 🥺</h2>
+
+      <div class="game-container">
+        <div class="blushing-creature-wrap" id="accept-game-creature">
           <svg viewBox="0 0 100 100" class="creature-svg">
             <!-- Head background & outline -->
-            <ellipse cx="50" cy="40" rx="34" ry="28" fill="#ebdbe8" stroke="#a3001e" stroke-width="3" />
-            
+            <ellipse cx="50" cy="40" rx="34" ry="28" fill="#ebdbe8" stroke="#2e2528" stroke-width="3" />
+
             <!-- Blush lines (left) -->
-            <line x1="24" y1="46" x2="27" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
-            <line x1="28" y1="46" x2="31" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
-            <line x1="32" y1="46" x2="35" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
-            
+            <line x1="24" y1="46" x2="27" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="28" y1="46" x2="31" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="32" y1="46" x2="35" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
+
             <!-- Blush lines (right) -->
-            <line x1="65" y1="46" x2="68" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
-            <line x1="69" y1="46" x2="72" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
-            <line x1="73" y1="46" x2="76" y2="52" stroke="#a3001e" stroke-width="2.5" stroke-linecap="round" />
-            
+            <line x1="65" y1="46" x2="68" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="69" y1="46" x2="72" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="73" y1="46" x2="76" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
+
             <!-- Eyes -->
-            <ellipse cx="36" cy="38" rx="16" ry="14" fill="#a3001e" />
-            <ellipse cx="64" cy="38" rx="16" ry="14" fill="#a3001e" />
-            
+            <ellipse cx="36" cy="38" rx="16" ry="14" fill="#2e2528" />
+            <ellipse cx="64" cy="38" rx="16" ry="14" fill="#2e2528" />
+
             <!-- Left Eye Heart Shine -->
-            <path d="M36 41 C36 41, 31 38, 31 35 C31 32.5, 33.5 31.5, 36 34.5 C38.5 31.5, 41 32.5, 41 35 C41 38, 36 41, 36 41 Z" fill="#ffffff" transform="rotate(-10 36 36)" />
+            <path
+              d="M36 41 C36 41, 31 38, 31 35 C31 32.5, 33.5 31.5, 36 34.5 C38.5 31.5, 41 32.5, 41 35 C41 38, 36 41, 36 41 Z"
+              fill="#ffffff" transform="rotate(-10 36 36)" />
             <ellipse cx="28" cy="32" rx="3" ry="2" fill="#ffffff" transform="rotate(-15 28 32)" />
-            
+
             <!-- Right Eye Heart Shine -->
-            <path d="M64 41 C64 41, 59 38, 59 35 C59 32.5, 61.5 31.5, 64 34.5 C66.5 31.5, 69 32.5, 69 35 C69 38, 64 41, 64 41 Z" fill="#ffffff" transform="rotate(10 64 36)" />
+            <path
+              d="M64 41 C64 41, 59 38, 59 35 C59 32.5, 61.5 31.5, 64 34.5 C66.5 31.5, 69 32.5, 69 35 C69 38, 64 41, 64 41 Z"
+              fill="#ffffff" transform="rotate(10 64 36)" />
             <ellipse cx="72" cy="32" rx="3" ry="2" fill="#ffffff" transform="rotate(15 72 32)" />
-            
+
             <!-- Shy Mouth -->
-            <path d="M44 50 Q50 53, 56 50" fill="none" stroke="#a3001e" stroke-width="3" stroke-linecap="round" />
-            
+            <path d="M44 50 Q50 53, 56 50" fill="none" stroke="#2e2528" stroke-width="3" stroke-linecap="round" />
+
             <!-- Shy Body -->
-            <path d="M38 64 L38 88 C38 92, 47 92, 47 88 L47 80 L53 80 L53 88 C53 92, 62 92, 62 88 L62 64" fill="#ebdbe8" stroke="#a3001e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M37 68 C39 74, 46 76, 49 76 C46 76, 42 78, 41 82" fill="none" stroke="#a3001e" stroke-width="3" stroke-linecap="round" />
-            <path d="M63 68 C61 74, 54 76, 51 76 C54 76, 58 78, 59 82" fill="none" stroke="#a3001e" stroke-width="3" stroke-linecap="round" />
-            <circle cx="50" cy="76" r="2.5" fill="#a3001e" />
+            <path d="M38 64 L38 88 C38 92, 47 92, 47 88 L47 80 L53 80 L53 88 C53 92, 62 92, 62 88 L62 64" fill="#ebdbe8"
+              stroke="#2e2528" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M37 68 C39 74, 46 76, 49 76 C46 76, 42 78, 41 82" fill="none" stroke="#2e2528" stroke-width="3"
+              stroke-linecap="round" />
+            <path d="M63 68 C61 74, 54 76, 51 76 C54 76, 58 78, 59 82" fill="none" stroke="#2e2528" stroke-width="3"
+              stroke-linecap="round" />
+            <circle cx="50" cy="76" r="2.5" fill="#2e2528" />
           </svg>
-          <div class="creature-bubble bg-purple typewriter">người anh yêu nhất</div>
-          <div class="creature-bubble bg-rose typewriter">fan số 1 của em ❤️</div>
+        </div>
+
+        <!-- Polaroid Reveal Card (hidden by default) -->
+        <div class="accept-reveal-polaroid hidden" id="accept-reveal-polaroid">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-img-wrap">
+            <img src="assets/photos/lily_bouquet_3d.png" alt="Special surprise for Madam Ji">
+          </div>
+          <p class="typewriter">Tặng cô công chúa của anh 🌸</p>
+        </div>
+
+        <!-- YES/NO dodge actions -->
+        <div class="accept-buttons-wrap">
+          <button class="game-btn yes-btn" id="gift-yes-btn">ĐỒNG Ý ❤️</button>
+          <button class="game-btn no-btn" id="gift-no-btn">HÔNG NHA 😜</button>
         </div>
       </div>
-      
-      <!-- Right side: Big bouquet representation -->
-      <div class="bouquet-big-card">
-        <img src="assets/photos/rose_bouquet_3d.png" class="bouquet-img" alt="Bouquet for Madam Ji">
+
+      <button class="btn-continue back-to-gifts-btn hidden" id="gift-game-back-btn">← Quay lại chọn quà</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 7-C: LETTER (STATIONERY LETTER SURPRISE) -->
+  <section class="screen" id="screen-letter">
+    <div class="scrapbook-page letter-stationery-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">từ tận đáy lòng 💌</span>
+        <span class="retro-star">★</span>
       </div>
-    </div>
-    
-    <button class="btn-continue back-to-gifts-btn">← Quay lại chọn quà</button>
-  </div>
-</section>
 
-<!-- SCREEN 7-B: SURPRISE ACCEPT GAME SCREEN -->
-<section class="screen" id="screen-gift-accept">
-  <div class="scrapbook-page accept-game-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">nhận quà nha 🎁</span>
-      <span class="retro-star">★</span>
-    </div>
-    
-    <h2 class="section-title font-stamp" id="accept-title-text">EM CÓ ĐỒNG Ý NHẬN QUÀ CỦA ANH HÔNG? 🥺</h2>
-    
-    <div class="game-container">
-      <div class="blushing-creature-wrap" id="accept-game-creature">
-        <svg viewBox="0 0 100 100" class="creature-svg">
-          <!-- Head background & outline -->
-          <ellipse cx="50" cy="40" rx="34" ry="28" fill="#ebdbe8" stroke="#2e2528" stroke-width="3" />
-          
-          <!-- Blush lines (left) -->
-          <line x1="24" y1="46" x2="27" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
-          <line x1="28" y1="46" x2="31" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
-          <line x1="32" y1="46" x2="35" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
-          
-          <!-- Blush lines (right) -->
-          <line x1="65" y1="46" x2="68" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
-          <line x1="69" y1="46" x2="72" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
-          <line x1="73" y1="46" x2="76" y2="52" stroke="#d63031" stroke-width="2.5" stroke-linecap="round" />
-          
-          <!-- Eyes -->
-          <ellipse cx="36" cy="38" rx="16" ry="14" fill="#2e2528" />
-          <ellipse cx="64" cy="38" rx="16" ry="14" fill="#2e2528" />
-          
-          <!-- Left Eye Heart Shine -->
-          <path d="M36 41 C36 41, 31 38, 31 35 C31 32.5, 33.5 31.5, 36 34.5 C38.5 31.5, 41 32.5, 41 35 C41 38, 36 41, 36 41 Z" fill="#ffffff" transform="rotate(-10 36 36)" />
-          <ellipse cx="28" cy="32" rx="3" ry="2" fill="#ffffff" transform="rotate(-15 28 32)" />
-          
-          <!-- Right Eye Heart Shine -->
-          <path d="M64 41 C64 41, 59 38, 59 35 C59 32.5, 61.5 31.5, 64 34.5 C66.5 31.5, 69 32.5, 69 35 C69 38, 64 41, 64 41 Z" fill="#ffffff" transform="rotate(10 64 36)" />
-          <ellipse cx="72" cy="32" rx="3" ry="2" fill="#ffffff" transform="rotate(15 72 32)" />
-          
-          <!-- Shy Mouth -->
-          <path d="M44 50 Q50 53, 56 50" fill="none" stroke="#2e2528" stroke-width="3" stroke-linecap="round" />
-          
-          <!-- Shy Body -->
-          <path d="M38 64 L38 88 C38 92, 47 92, 47 88 L47 80 L53 80 L53 88 C53 92, 62 92, 62 88 L62 64" fill="#ebdbe8" stroke="#2e2528" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M37 68 C39 74, 46 76, 49 76 C46 76, 42 78, 41 82" fill="none" stroke="#2e2528" stroke-width="3" stroke-linecap="round" />
-          <path d="M63 68 C61 74, 54 76, 51 76 C54 76, 58 78, 59 82" fill="none" stroke="#2e2528" stroke-width="3" stroke-linecap="round" />
-          <circle cx="50" cy="76" r="2.5" fill="#2e2528" />
-        </svg>
+      <div class="stationery-letter">
+        <div class="letter-seal">🌹</div>
+        <p class="letter-greeting script">Gửi <span class="recipient-name-fill">Em Yêu</span> của anh,</p>
+        <p class="letter-body typewriter">
+          Chúc mừng sinh nhật cô gái đáng yêu và đặc biệt nhất trong lòng anh! 🎉🎂<br><br>
+          Cảm ơn em vì đã xuất hiện và đồng hành cùng anh. Ở bên cạnh em, từng câu chuyện vu vơ, từng tiếng cười đùa hay
+          những lúc cùng nhau chia sẻ mọi vui buồn trong cuộc sống đều trở thành những kỷ niệm vô giá đối với anh.
+          😂🤍<br><br>
+          Anh không phải là người khéo nói, nhưng anh luôn thật lòng biết ơn vì đã có em trong đời. Những lúc em thấy
+          mệt mỏi hay gặp bất kỳ khó khăn gì, hãy nhớ luôn có anh ở đây sẵn sàng lắng nghe và che chở cho em
+          nhé.<br><br>
+          Bước sang tuổi mới, anh chúc em luôn luôn xinh đẹp, rạng rỡ và tràn ngập hạnh phúc. Mong mọi ước mơ, dự định
+          của em đều sẽ sớm thành hiện thực. Hãy luôn giữ nụ cười thật tươi trên môi và mãi là chính em nhé.<br><br>
+          Sinh nhật thật hạnh phúc và ấm áp nha em yêu! Yêu em rất nhiều. 🎂🌸✨
+        </p>
+        <p class="letter-sign script">Mãi bên em,<br><span class="sender-name-fill">Anh Yêu</span> 🌹</p>
       </div>
-      
-      <!-- Polaroid Reveal Card (hidden by default) -->
-      <div class="accept-reveal-polaroid hidden" id="accept-reveal-polaroid">
-        <div class="polaroid-tape"></div>
-        <div class="polaroid-img-wrap">
-          <img src="assets/photos/lily_bouquet_3d.png" alt="Special surprise for Madam Ji">
-        </div>
-        <p class="typewriter">Tặng cô công chúa của anh 🌸</p>
+
+      <button class="btn-continue back-to-gifts-btn">← Quay lại chọn quà</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 8: FINALE -->
+  <section class="screen" id="screen-finale">
+    <div class="scrapbook-page">
+      <div class="scrapbook-header">
+        <span class="stamp-text">tiệc sinh nhật 🎉</span>
+        <span class="retro-star">★</span>
       </div>
-      
-      <!-- YES/NO dodge actions -->
-      <div class="accept-buttons-wrap">
-        <button class="game-btn yes-btn" id="gift-yes-btn">ĐỒNG Ý ❤️</button>
-        <button class="game-btn no-btn" id="gift-no-btn">HÔNG NHA 😜</button>
+
+      <div class="confetti-anchor"></div>
+      <h1 class="big-name typewriter"><span>Chúc Mừng Sinh Nhật</span><br><span class="name-gradient"><span
+            class="recipient-name-fill">Em Yêu</span> 🎉</span></h1>
+      <p class="sub typewriter">Cảm ơn em vì đã đến bên anh. Chúc cho tình yêu của chúng mình luôn bền chặt và cùng nhau
+        tạo nên thật nhiều kỷ niệm đẹp nữa nhé! 🥂⭐🌸</p>
+      <button class="btn-continue" id="replay-btn">Xem lại từ đầu ↺</button>
+    </div>
+  </section>
+
+  <!-- PHOTO LIGHTBOX MODAL (Phóng to ảnh) -->
+  <div id="photo-lightbox" class="lightbox-overlay hidden">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-card">
+      <button class="lightbox-close-btn" id="lightbox-close" aria-label="Đóng">×</button>
+      <div class="lightbox-tape"></div>
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="Ảnh kỷ niệm">
       </div>
+      <p id="lightbox-caption" class="typewriter"></p>
+      <span class="lightbox-hint typewriter">✦ Chạm vào nền để đóng ✦</span>
     </div>
-    
-    <button class="btn-continue back-to-gifts-btn hidden" id="gift-game-back-btn">← Quay lại chọn quà</button>
   </div>
-</section>
 
-<!-- SCREEN 7-C: LETTER (STATIONERY LETTER SURPRISE) -->
-<section class="screen" id="screen-letter">
-  <div class="scrapbook-page letter-stationery-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">từ tận đáy lòng 💌</span>
-      <span class="retro-star">★</span>
-    </div>
-    
-    <div class="stationery-letter">
-      <div class="letter-seal">🌹</div>
-      <p class="letter-greeting script">Gửi <span class="recipient-name-fill">Em Yêu</span> của anh,</p>
-      <p class="letter-body typewriter">
-        Chúc mừng sinh nhật cô gái đáng yêu và đặc biệt nhất trong lòng anh! 🎉🎂<br><br>
-        Cảm ơn em vì đã xuất hiện và đồng hành cùng anh. Ở bên cạnh em, từng câu chuyện vu vơ, từng tiếng cười đùa hay những lúc cùng nhau chia sẻ mọi vui buồn trong cuộc sống đều trở thành những kỷ niệm vô giá đối với anh. 😂🤍<br><br>
-        Anh không phải là người khéo nói, nhưng anh luôn thật lòng biết ơn vì đã có em trong đời. Những lúc em thấy mệt mỏi hay gặp bất kỳ khó khăn gì, hãy nhớ luôn có anh ở đây sẵn sàng lắng nghe và che chở cho em nhé.<br><br>
-        Bước sang tuổi mới, anh chúc em luôn luôn xinh đẹp, rạng rỡ và tràn ngập hạnh phúc. Mong mọi ước mơ, dự định của em đều sẽ sớm thành hiện thực. Hãy luôn giữ nụ cười thật tươi trên môi và mãi là chính em nhé.<br><br>
-        Sinh nhật thật hạnh phúc và ấm áp nha em yêu! Yêu em rất nhiều. 🎂🌸✨
-      </p>
-      <p class="letter-sign script">Mãi bên em,<br><span class="sender-name-fill">Anh Yêu</span> 🌹</p>
-    </div>
-    
-    <button class="btn-continue back-to-gifts-btn">← Quay lại chọn quà</button>
+  <!-- YOUTUBE & LOCAL AUDIO CONTAINER -->
+  <div id="yt-player-container"
+    style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
+    <div id="yt-player"></div>
   </div>
-</section>
 
-<!-- SCREEN 8: FINALE -->
-<section class="screen" id="screen-finale">
-  <div class="scrapbook-page">
-    <div class="scrapbook-header">
-      <span class="stamp-text">tiệc sinh nhật 🎉</span>
-      <span class="retro-star">★</span>
-    </div>
-    
-    <div class="confetti-anchor"></div>
-    <h1 class="big-name typewriter"><span>Chúc Mừng Sinh Nhật</span><br><span class="name-gradient"><span class="recipient-name-fill">Em Yêu</span> 🎉</span></h1>
-    <p class="sub typewriter">Cảm ơn em vì đã đến bên anh. Chúc cho tình yêu của chúng mình luôn bền chặt và cùng nhau tạo nên thật nhiều kỷ niệm đẹp nữa nhé! 🥂⭐🌸</p>
-    <button class="btn-continue" id="replay-btn">Xem lại từ đầu ↺</button>
-  </div>
-</section>
+  <audio id="bg-music" loop>
+    <source src="assets/audio/cho-chut.mp3" type="audio/mpeg">
+    <source src="assets/audio/JVKE - golden hour (instrumental).mp3" type="audio/mpeg">
+  </audio>
+  <button id="music-toggle" class="music-btn hidden" title="Bật / Tắt nhạc">🔊</button>
 
-<!-- PHOTO LIGHTBOX MODAL (Phóng to ảnh) -->
-<div id="photo-lightbox" class="lightbox-overlay hidden">
-  <div class="lightbox-backdrop"></div>
-  <div class="lightbox-card">
-    <button class="lightbox-close-btn" id="lightbox-close" aria-label="Đóng">×</button>
-    <div class="lightbox-tape"></div>
-    <div class="lightbox-img-wrap">
-      <img id="lightbox-img" src="" alt="Ảnh kỷ niệm">
-    </div>
-    <p id="lightbox-caption" class="typewriter"></p>
-    <span class="lightbox-hint typewriter">✦ Chạm vào nền để đóng ✦</span>
-  </div>
-</div>
-
-<!-- YOUTUBE & LOCAL AUDIO CONTAINER -->
-<div id="yt-player-container" style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
-  <div id="yt-player"></div>
-</div>
-
-<audio id="bg-music" loop>
-  <source src="assets/audio/cho-chut.mp3" type="audio/mpeg">
-  <source src="assets/audio/JVKE - golden hour (instrumental).mp3" type="audio/mpeg">
-</audio>
-<button id="music-toggle" class="music-btn hidden" title="Bật / Tắt nhạc">🔊</button>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-<script src="https://www.youtube.com/iframe_api"></script>
-<script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>
