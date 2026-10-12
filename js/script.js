@@ -3,7 +3,7 @@ const CONFIG = {
   correctPin: "1710",        // Mã PIN 4 số (Ngày sinh hoặc ngày kỷ niệm DDMM, ví dụ: 2010 là ngày 20/10)
   recipientName: "Kào",   // Tên hoặc biệt danh của bạn gái
   senderName: "MinXu",      // Tên hoặc biệt danh của bạn
-  age: 20,                   // Tuổi mới của bạn gái
+  age: 23,                   // Tuổi mới của bạn gái
   autoplayMusic: true        // Tự động bật nhạc khi bắt đầu nhập mã
 };
 
